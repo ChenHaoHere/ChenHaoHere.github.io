@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-02-28T00:09:31.290Z</updated>
+    <updated>2020-02-28T02:20:35.873Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,57 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[numpy常用]]></title>
+        <id>https://ChenHaoHere.github.io/post/numpy-chang-yong/</id>
+        <link href="https://ChenHaoHere.github.io/post/numpy-chang-yong/">
+        </link>
+        <updated>2020-02-28T02:20:00.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<p>np.random各种method</p>
+<p><a href="https://www.cnblogs.com/zuoshoushizi/p/8727773.html">https://www.cnblogs.com/zuoshoushizi/p/8727773.html</a></p>
+<pre><code class="language-python">np.random.normal(mean, var, size)#正态分布
+</code></pre>
+<hr>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[pandas常用]]></title>
+        <id>https://ChenHaoHere.github.io/post/pandas-chang-yong/</id>
+        <link href="https://ChenHaoHere.github.io/post/pandas-chang-yong/">
+        </link>
+        <updated>2020-02-28T02:18:59.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<pre><code class="language-python">Series.var()#求方差
+Series.mean()#求均值
+
+#创建一个准备填充Age列的 高斯分布的 Series
+##注意df.fillna()不能是numpy数组
+pd.Series(np.random.normal(df.loc[:, 'Age'].var(), df.loc[:, 'Age'].mean(), df.loc[:, 'Age'].isnull().sum()), index=df[df.loc[:, &quot;Age&quot;].isnull()].index)
+</code></pre>
+<hr>
+<pre><code class="language-python">df['Embarked'].fillna(df['Embarked'].value_counts().idxmax())#众数填充
+
+df.mode()#获得众数
+
+df = pd.get_dummies(df, columns=[&quot;Embarked&quot;], prefix=&quot;Embarked&quot;)#哑变量转换
+
+df.isnull.sum()#计数空值
+
+df.dropna(inplace=True)#丢弃含有nan的行
+
+#丢弃列
+df.drop(['Name', 'Ticket', 'Cabin'], axis=1, inplace=True)#inplace
+
+#根据数据类型筛选数据
+df.select_dtypes(include='bool')#还能用exclude
+</code></pre>
+<hr>
+<h2 id="一文详解pandas中的map-apply-applymap-groupby-agg"><a href="https://mp.weixin.qq.com/s/mjDk9aog8wydNIGQKUHiBQ">一文详解pandas中的map、apply、applymap、groupby、agg...</a></h2>
+<p><strong>apply好用</strong></p>
+<hr>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Markdown基础语法]]></title>
         <id>https://ChenHaoHere.github.io/post/markdown-ji-chu-yu-fa/</id>

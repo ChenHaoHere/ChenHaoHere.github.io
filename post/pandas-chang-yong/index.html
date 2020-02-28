@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Blabla</title>
+<title>pandas常用 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -25,14 +25,13 @@
 
 
     <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
+Series.var()#求方差
+Series.mean()#求均值
 
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
-    <meta name="keywords" content="" />
+#创建一个准备填充Age列的 高斯分布的 Series
+##注意df.fillna()不能是numpy数组
+pd.Series(np.random.normal(df..." />
+    <meta name="keywords" content="Python" />
   </head>
   <body>
     <div id="app" class="main">
@@ -103,20 +102,59 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">pandas常用</h2>
+            <div class="post-date">2020-02-28</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <hr>
+<pre><code class="language-python">Series.var()#求方差
+Series.mean()#求均值
+
+#创建一个准备填充Age列的 高斯分布的 Series
+##注意df.fillna()不能是numpy数组
+pd.Series(np.random.normal(df.loc[:, 'Age'].var(), df.loc[:, 'Age'].mean(), df.loc[:, 'Age'].isnull().sum()), index=df[df.loc[:, &quot;Age&quot;].isnull()].index)
+</code></pre>
+<hr>
+<pre><code class="language-python">df['Embarked'].fillna(df['Embarked'].value_counts().idxmax())#众数填充
+
+df.mode()#获得众数
+
+df = pd.get_dummies(df, columns=[&quot;Embarked&quot;], prefix=&quot;Embarked&quot;)#哑变量转换
+
+df.isnull.sum()#计数空值
+
+df.dropna(inplace=True)#丢弃含有nan的行
+
+#丢弃列
+df.drop(['Name', 'Ticket', 'Cabin'], axis=1, inplace=True)#inplace
+
+#根据数据类型筛选数据
+df.select_dtypes(include='bool')#还能用exclude
+</code></pre>
+<hr>
+<h2 id="一文详解pandas中的map-apply-applymap-groupby-agg"><a href="https://mp.weixin.qq.com/s/mjDk9aog8wydNIGQKUHiBQ">一文详解pandas中的map、apply、applymap、groupby、agg...</a></h2>
+<p><strong>apply好用</strong></p>
+<hr>
 
             </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
+                    Python
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ChenHaoHere.github.io/post/markdown-ji-chu-yu-fa/">
+                  <h3 class="post-title">
+                    Markdown基础语法
+                  </h3>
+                </a>
+              </div>
             
 
             
