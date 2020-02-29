@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>pandas常用 | Blabla</title>
+<title>Linux操作 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,14 +24,17 @@
 
 
 
-    <meta name="description" content="
-Series.var()#求方差
-Series.mean()#求均值
+    <meta name="description" content="Linux操作
 
-#创建一个准备填充Age列的 高斯分布的 Series
-##注意df.fillna()不能是numpy数组
-pd.Series(np.random.normal(df..." />
-    <meta name="keywords" content="Python" />
+
+anaconda python环境变量配置
+查看显卡状态
+文件操作
+
+
+
+echo 'export PATH=&quot;/home/ch/anaconda3/bin:$PATH&quot;' &gt;&gt; ~/.b..." />
+    <meta name="keywords" content="Linux" />
   </head>
   <body>
     <div id="app" class="main">
@@ -102,46 +105,49 @@ pd.Series(np.random.normal(df..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">pandas常用</h2>
-            <div class="post-date">2020-02-28</div>
+            <h2 class="post-title">Linux操作</h2>
+            <div class="post-date">2020-02-29</div>
             
             <div class="post-content" v-pre>
-              <hr>
-<pre><code class="language-python">Series.var()#求方差
-Series.mean()#求均值
-
-#创建一个准备填充Age列的 高斯分布的 Series
-##注意df.fillna()不能是numpy数组
-pd.Series(np.random.normal(df.loc[:, 'Age'].var(), df.loc[:, 'Age'].mean(), df.loc[:, 'Age'].isnull().sum()), index=df[df.loc[:, &quot;Age&quot;].isnull()].index)
+              <h1 id="linux操作">Linux操作</h1>
+<blockquote>
+<ol>
+<li>anaconda python环境变量配置</li>
+<li>查看显卡状态</li>
+<li>文件操作</li>
+</ol>
+</blockquote>
+<hr>
+<pre><code class="language-linux">echo 'export PATH=&quot;/home/ch/anaconda3/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
+source ~/.bashrc
 </code></pre>
 <hr>
-<pre><code class="language-python">df['Embarked'].fillna(df['Embarked'].value_counts().idxmax())#众数填充
-
-df.mode()#获得众数
-
-df = pd.get_dummies(df, columns=[&quot;Embarked&quot;], prefix=&quot;Embarked&quot;)#哑变量转换
-
-df.isnull.sum()#计数空值
-
-df.dropna(inplace=True)#丢弃含有nan的行
-
-#丢弃列
-df.drop(['Name', 'Ticket', 'Cabin'], axis=1, inplace=True)#inplace
-
-#根据数据类型筛选数据
-df.select_dtypes(include='bool')#还能用exclude
+<p>暂态</p>
+<pre><code class="language-cmake">nvidia-smi
+</code></pre>
+<p>利用<strong>watch</strong>周期性的查看</p>
+<p>watch的作用</p>
+<pre><code>ch@host69:~$ whatis watch
+watch (1)            - execute a program periodically, showing output fullscreen
+</code></pre>
+<p>watch的基本用法</p>
+<pre><code>$ watch [options]  command
+</code></pre>
+<p>最常用的参数是 -n， 后面指定是每多少秒来执行一次命令</p>
+<p>每10s查看显卡状态</p>
+<pre><code>watch -n 10 nvidia-smi
 </code></pre>
 <hr>
-<h2 id="一文详解pandas中的map-apply-applymap-groupby-agg"><a href="https://mp.weixin.qq.com/s/mjDk9aog8wydNIGQKUHiBQ">一文详解pandas中的map、apply、applymap、groupby、agg...</a></h2>
-<p><strong>apply好用</strong></p>
-<hr>
+<p><strong>cp</strong>指令，用于复制文件或者目录到本机指定的目录</p>
+<pre><code>$ cp /home/A /home/B
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
-                    Python
+                  <a href="https://ChenHaoHere.github.io/tag/linux/" class="tag">
+                    Linux
                   </a>
                 
               </div>
@@ -149,9 +155,9 @@ df.select_dtypes(include='bool')#还能用exclude
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/markdown-ji-chu-yu-fa/">
+                <a href="https://ChenHaoHere.github.io/post/pytorch/">
                   <h3 class="post-title">
-                    Markdown基础语法
+                    pytorch
                   </h3>
                 </a>
               </div>

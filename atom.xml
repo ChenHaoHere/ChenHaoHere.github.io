@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-02-29T09:02:11.152Z</updated>
+    <updated>2020-02-29T09:02:39.976Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -24,6 +24,46 @@ in:description example	描述中有“example”</p>
 forks:&gt;1000		fork&gt;1000<br>
 pushed:&gt;2019-09-01		2019年9月1日后有更新的</p>
 <p>language:java</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux操作]]></title>
+        <id>https://ChenHaoHere.github.io/post/linux-cao-zuo/</id>
+        <link href="https://ChenHaoHere.github.io/post/linux-cao-zuo/">
+        </link>
+        <updated>2020-02-29T06:45:19.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="linux操作">Linux操作</h1>
+<blockquote>
+<ol>
+<li>anaconda python环境变量配置</li>
+<li>查看显卡状态</li>
+<li>文件操作</li>
+</ol>
+</blockquote>
+<hr>
+<pre><code class="language-linux">echo 'export PATH=&quot;/home/ch/anaconda3/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+<hr>
+<p>暂态</p>
+<pre><code class="language-cmake">nvidia-smi
+</code></pre>
+<p>利用<strong>watch</strong>周期性的查看</p>
+<p>watch的作用</p>
+<pre><code>ch@host69:~$ whatis watch
+watch (1)            - execute a program periodically, showing output fullscreen
+</code></pre>
+<p>watch的基本用法</p>
+<pre><code>$ watch [options]  command
+</code></pre>
+<p>最常用的参数是 -n， 后面指定是每多少秒来执行一次命令</p>
+<p>每10s查看显卡状态</p>
+<pre><code>watch -n 10 nvidia-smi
+</code></pre>
+<hr>
+<p><strong>cp</strong>指令，用于复制文件或者目录到本机指定的目录</p>
+<pre><code>$ cp /home/A /home/B
+</code></pre>
 ]]></content>
     </entry>
     <entry>
