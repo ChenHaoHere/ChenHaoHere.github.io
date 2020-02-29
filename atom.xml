@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-02-28T05:18:06.873Z</updated>
+    <updated>2020-02-29T07:44:48.387Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[Github高级搜索]]></title>
+        <id>https://ChenHaoHere.github.io/post/github-gao-ji-sou-suo/</id>
+        <link href="https://ChenHaoHere.github.io/post/github-gao-ji-sou-suo/">
+        </link>
+        <updated>2020-02-29T07:42:39.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="github高级搜索">GitHub高级搜索</h1>
+<p>in:name example		名字中有“example”<br>
+in:readme example		readme中有“example”<br>
+in:description example	描述中有“example”</p>
+<p>stars:&gt;1000		star&gt;1000<br>
+forks:&gt;1000		fork&gt;1000<br>
+pushed:&gt;2019-09-01		2019年9月1日后有更新的</p>
+<p>language:java</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[pytorch]]></title>
         <id>https://ChenHaoHere.github.io/post/pytorch/</id>
