@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Blabla</title>
+<title>面向数据科学的Python多进程 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,15 +24,10 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
-
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="https://www.cnblogs.com/feffery/p/11621076.html?from=singlemessage
+最简单的方法是用joblib实现多进程
+from joblib import Parallel, dela..." />
+    <meta name="keywords" content="Python" />
   </head>
   <body>
     <div id="app" class="main">
@@ -103,20 +98,47 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">面向数据科学的Python多进程</h2>
+            <div class="post-date">2020-03-04</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <p><a href="https://www.cnblogs.com/feffery/p/11621076.html?from=singlemessage">https://www.cnblogs.com/feffery/p/11621076.html?from=singlemessage</a></p>
+<p><em>最简单的方法是用joblib实现多进程</em></p>
+<pre><code class="language-python">from joblib import Parallel, delayed
+import numpy as np
+import time
+import datetime
+
+def job(i):
+    start = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    time.sleep(5)
+    end = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    return start, end
+
+result = Parallel(n_jobs=5, verbose=1)(delayed(job)(j) for j in range(5))
+result
+</code></pre>
 
             </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
+                    Python
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ChenHaoHere.github.io/post/github-gao-ji-sou-suo/">
+                  <h3 class="post-title">
+                    Github高级搜索
+                  </h3>
+                </a>
+              </div>
             
 
             
