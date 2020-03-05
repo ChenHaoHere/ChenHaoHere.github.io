@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-05T08:59:38.854Z</updated>
+    <updated>2020-03-05T13:25:05.030Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,39 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[C语言 动态链接库&静态链接库]]></title>
+        <id>https://ChenHaoHere.github.io/post/c-yu-yan-dong-tai-lian-jie-ku-andjing-tai-lian-jie-ku/</id>
+        <link href="https://ChenHaoHere.github.io/post/c-yu-yan-dong-tai-lian-jie-ku-andjing-tai-lian-jie-ku/">
+        </link>
+        <updated>2020-03-05T13:24:28.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="c语言-动态链接库静态链接库">C语言 动态链接库&amp;静态链接库</h1>
+<blockquote>
+<p>C写的代码最终要想变成可执行文件，需要经过编译链接。</p>
+<p>​     在windows上，.c文件进过编译生成目标文件.obj，再将目标文件链接生成.exe。</p>
+<p>​     对于大型项目，会把程序划分成几个独立的模块，然后每个模块分别编译，在编译之后，由连接器把这些独立的片段“粘接到一起”。</p>
+</blockquote>
+<h2 id="静态链接库">静态链接库</h2>
+<p>采用静态链接库，lib中的指令都被直接包含在最终生成的EXE文件中。</p>
+<p>​     制作静态链接库</p>
+<p>​     有lib.h和lib.cpp两个文件，编译这个工程得到libTest.lib文件。这个文件就是一个函数库。将lib.h和libTest.lib提交给用户后，用户就能使用这个模块内的函数了。</p>
+<p>​     使用libTest.lib有两种方式：</p>
+<p>​     1.将lib.h和libTest.lib拷贝到工程子目录下。在要使用的.c文件中，加上lib.h头文件引用，加上#pragma comment(lib, “libTest.lib”)。这样就可以调用静态链接库。这句代码的意思是指本文件生成的.obj文件应该和libTest.lib一起链接。</p>
+<p>​     2.在VS工程中，填入库文件libTest.lib路径。也是可行的。</p>
+<p>​     库不能单独执行</p>
+<p>​     库提供一些可以给别的程序调用的内容，别的程序要调用它必须以某种方式指明它要调用。</p>
+<h2 id="动态链接库dll">动态链接库(<strong>.dll</strong>)</h2>
+<p>​	动态链接库可以理解为将源代码编译成目标代码后打成的库。该目标代码库可被其他进程在执行时动态调用。动态链接库在程序执行时动态进行调用和卸载。</p>
+<p>​    制作动态链接库</p>
+<p>​    有dll.h和dll.cpp两个文件，编译生成 dllTest.dll 和 dllTest.lib。</p>
+<p>​    <strong>动态库调用</strong>：</p>
+<p>​    1.将.dll和.lib拷贝到要使用的目录(.lib到.c同级目录, .dll到debug目录)下，然后在.cpp文件中加上#pragma comment(lib, “dllTest.lib”)，然后通过extern 声明引用dll.cpp中的函数。接着编译、链接、执行就会得到结果。对于动态链接库，链接的时候需要.lib文件，运行的时候需要.dll文件。</p>
+<p>​     2.在工程中使用loadLibrary动态的载入dll。</p>
+<h2 id="lib文件的区别">.lib文件的区别</h2>
+<p>​	 静态库对应的.lib文件叫静态库，本身包含了实际执行代码、符号表等等。当生成可执行文件以后，可执行文件包含所有的代码，因此，在可执行文件运行时就不再需要静态库。但是这样最后的程序占用磁盘空间较大。如果有多个进程在内存中运行，内存中就存有多份相同的库函数代码，因此占用内存空间较多。</p>
+<p>​     动态库对应的.lib文件叫导入库，实际的执行代码位于动态库中，导入库只包含了地址符号表，确保程序找到对应函数的一些基本地址信息。最终的可执行文件不包含DLL中的内容，只是通过导入库(.lib)知道了相应的地址信息，因此，可执行文件在运行时动态得去加载DLL。多个应用程序可以同时使用一个dll，有效的节省硬盘空间。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[#define简单总结]]></title>
         <id>https://ChenHaoHere.github.io/post/define-jian-dan-zong-jie/</id>
@@ -394,291 +427,6 @@ df.select_dtypes(include='bool')#还能用exclude
 <h2 id="一文详解pandas中的map-apply-applymap-groupby-agg"><a href="https://mp.weixin.qq.com/s/mjDk9aog8wydNIGQKUHiBQ">一文详解pandas中的map、apply、applymap、groupby、agg...</a></h2>
 <p><strong>apply好用</strong></p>
 <hr>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Markdown基础语法]]></title>
-        <id>https://ChenHaoHere.github.io/post/markdown-ji-chu-yu-fa/</id>
-        <link href="https://ChenHaoHere.github.io/post/markdown-ji-chu-yu-fa/">
-        </link>
-        <updated>2020-02-27T14:15:35.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一级标题">一级标题</h1>
-<h2 id="二级标题">二级标题</h2>
-<h3 id="三级标题">三级标题</h3>
-<hr>
-<p>段落：这是段落一 段落的换行是两个以上空格加回车</p>
-<p>或者使用一个空行</p>
-<hr>
-<p><em>斜体文本</em></p>
-<p><em>斜体文本</em></p>
-<p><strong>粗体文本</strong></p>
-<p><strong>粗体文本</strong></p>
-<p><em><strong>粗斜体文本</strong></em></p>
-<p><em><strong>粗斜体文本</strong></em></p>
-<hr>
-<hr>
-<p>删除线</p>
-<p><s>啦啦啦</s></p>
-<hr>
-<p>下划线用HTML语法实现</p>
-<p><u>我带下划线</u></p>
-<hr>
-<p>脚注</p>
-<p>创建脚注<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<hr>
-<p>列表</p>
-<ul>
-<li>
-<p>第一项</p>
-</li>
-<li>
-<p>第二项</p>
-</li>
-<li>
-<p>第三项</p>
-</li>
-</ul>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-<ol>
-<li>
-<p>嗯</p>
-</li>
-<li>
-<p>哈哈哈</p>
-</li>
-<li>
-<p>这是头:</p>
-<ul>
-<li>嵌套元素</li>
-</ul>
-</li>
-</ol>
-<hr>
-<p>区块</p>
-<blockquote>
-<p>区块引用</p>
-</blockquote>
-<blockquote>
-<p>对不起大家</p>
-</blockquote>
-<blockquote>
-<p>最外层</p>
-<blockquote>
-<p>次外层</p>
-<blockquote>
-<p>次次外层</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>列表中使用区块</p>
-<ul>
-<li>
-<p>第一项</p>
-<blockquote>
-<p>菜鸟教程</p>
-<p>学的不仅是技术更是梦想</p>
-</blockquote>
-</li>
-<li>
-<p>第二项</p>
-<blockquote>
-<p>好好学习</p>
-<p>天台向上</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>区块中使用列表</p>
-<ol>
-<li>212315</li>
-<li>564</li>
-</ol>
-</blockquote>
-<hr>
-<p>代码</p>
-<p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（<strong>`</strong>）</p>
-<p><code>print('Hello world')</code></p>
-<p>代码区块</p>
-<pre><code class="language-python">print('Hello world')
-</code></pre>
-<pre><code class="language-c">#include &quot;iostream&quot;
-
-#define Pi 3.14
-
-int main(){
-    return 0;
-}
-</code></pre>
-<hr>
-<p>这是一个链接<a href="www.baidu.com">baidu</a></p>
-<p>直接使用链接地址</p>
-<p>&lt;www.baidu.com&gt;</p>
-<p>高级链接</p>
-<p>链接也可以用变量来代替，文档末尾附带变量地址：<br>
-这个链接用 1 作为网址变量 <a href="http://www.google.com/">Google</a><br>
-这个链接用 runoob 作为网址变量 <a href="http://www.runoob.com/">Runoob</a><br>
-然后在文档的结尾为变量赋值（网址）</p>
-<hr>
-<img src="D:\ChromeDownload\PureGreen.jpg" alt="alt 属性文本" title="name" style="zoom:67%;" />
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/ChenHaoHere/PicGo/master/Pure_Green.jpg" alt="test" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://github.com/ChenHaoHere/PicGo/blob/master/20200227161940.png" alt="test" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2020/02/27/Tl3rCNFd2maRXqO.png" alt="sm.ms" loading="lazy"></figure>
-<figure data-type="image" tabindex="4"><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" loading="lazy"></figure>
-<figure data-type="image" tabindex="5"><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB" loading="lazy"></figure>
-<p>这个链接用 1 作为网址变量 <a href="http://www.google.com/">RUNOOB</a>.<br>
-然后在文档的结尾为变量赋值（网址）</p>
-<img src="http://static.runoob.com/images/runoob-logo.png" width="35%">
-<hr>
-<p>表格</p>
-<p>typora可以直接右键添加</p>
-<hr>
-<p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。<br>
-目前支持的 HTML 元素有：<kbd> <b> <i> <em> <sup> <sub> <br>等 ，如：<br>
-使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
-<hr>
-<p>转义<br>
-<strong>文本加粗</strong><br>
-** 正常显示星号 **</p>
-<p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：<br>
-\   反斜线<br>
-`   反引号</p>
-<ul>
-<li>星号<br>
-_   下划线<br>
-{}  花括号<br>
-[]  方括号<br>
-()  小括号</li>
-</ul>
-<h1 id="井字号">井字号</h1>
-<ul>
-<li>加号</li>
-</ul>
-<ul>
-<li>减号<br>
-.   英文句点<br>
-!   感叹号</li>
-</ul>
-<hr>
-<p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax 对数学公式进行渲染。如：</p>
-<p class='katex-block katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;$&#039; in math mode at position 248: …
-\end{vmatrix}
-$̲{$tep1}{\style{…'>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} 
-\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
-\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
-\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \\
-\end{vmatrix}
-${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}
-</p>
-<hr>
-<pre><code class="language-mermaid">graph LR
-A[方形] --&gt;B(圆角)
-    B --&gt; C{条件a}
-    C --&gt;|a=1| D[结果1]
-    C --&gt;|a=2| E[结果2]
-    F[横向流程图]
-</code></pre>
-<hr>
-<pre><code class="language-mermaid">graph TD
-A[方形] --&gt; B(圆角)
-    B --&gt; C{条件a}
-    C --&gt; |a=1| D[结果1]
-    C --&gt; |a=2| E[结果2]
-    F[竖向流程图]
-</code></pre>
-<hr>
-<pre><code class="language-flow">st=&gt;start: 开始框
-op=&gt;operation: 处理框
-cond=&gt;condition: 判断框(是或否?)
-sub1=&gt;subroutine: 子流程
-io=&gt;inputoutput: 输入输出框
-e=&gt;end: 结束框
-st-&gt;op-&gt;cond
-cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op
-</code></pre>
-<hr>
-<pre><code class="language-flow">st=&gt;start: 开始框
-op=&gt;operation: 处理框
-cond=&gt;condition: 判断框(是或否?)
-sub1=&gt;subroutine: 子流程
-io=&gt;inputoutput: 输入输出框
-e=&gt;end: 结束框
-st(right)-&gt;op(right)-&gt;cond
-cond(yes)-&gt;io(bottom)-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op
-</code></pre>
-<hr>
-<pre><code class="language-sequence">对象A-&gt;对象B: 对象B你好吗?（请求）
-Note right of 对象B: 对象B的描述
-Note left of 对象A: 对象A的描述(提示)
-对象B--&gt;对象A: 我很好(响应)
-对象A-&gt;对象B: 你真的好吗？
-</code></pre>
-<hr>
-<pre><code class="language-sequence">Title: 标题：复杂使用
-对象A-&gt;对象B: 对象B你好吗?（请求）
-Note right of 对象B: 对象B的描述
-Note left of 对象A: 对象A的描述(提示)
-对象B--&gt;对象A: 我很好(响应)
-对象B-&gt;小三: 你好吗
-小三--&gt;&gt;对象A: 对象B找我了
-对象A-&gt;对象B: 你真的好吗？
-Note over 小三,对象B: 我们是朋友
-participant C
-Note right of C: 没人陪我玩
-</code></pre>
-<hr>
-<pre><code class="language-mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
-  sequenceDiagram
-    participant 张三
-    participant 李四
-    张三-&gt;王五: 王五你好吗？
-    loop 健康检查
-        王五-&gt;王五: 与疾病战斗
-    end
-    Note right of 王五: 合理 食物 &lt;br/&gt;看医生...
-    李四--&gt;&gt;张三: 很好!
-    王五-&gt;李四: 你怎么样?
-    李四--&gt;王五: 很好!
-</code></pre>
-<hr>
-<pre><code class="language-mermaid">%% 语法示例
-        gantt
-        dateFormat  YYYY-MM-DD
-        title 软件开发甘特图
-        section 设计
-        需求                      :done,    des1, 2014-01-06,2014-01-08
-        原型                      :active,  des2, 2014-01-09, 3d
-        UI设计                     :         des3, after des2, 5d
-    未来任务                     :         des4, after des3, 5d
-        section 开发
-        学习准备理解需求                      :crit, done, 2014-01-06,24h
-        设计框架                             :crit, done, after des2, 2d
-        开发                                 :crit, active, 3d
-        未来任务                              :crit, 5d
-        耍                                   :2d
-        section 测试
-        功能测试                              :active, a1, after des3, 3d
-        压力测试                               :after a1  , 20h
-        测试报告                               : 48h
-</code></pre>
-<hr>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>同济大学 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 ]]></content>
     </entry>
 </feed>

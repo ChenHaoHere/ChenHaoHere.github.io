@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>C语言 动态链接库&amp;静态链接库 | Blabla</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1583414699129">
+<link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="C语言 动态链接库&amp;静态链接库
+
+C写的代码最终要想变成可执行文件，需要经过编译链接。
+​     在windows上，.c文件进过编译生成目标文件.obj，再将目标文件链接生成.exe。
+​     对于大型项目，会把程序划分成几..." />
+    <meta name="keywords" content="C/C++" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ChenHaoHere.github.io">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1583414699129" class="site-logo">
+        <h1 class="site-title">Blabla</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      我的Blog
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ChenHaoHere.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">C语言 动态链接库&amp;静态链接库</h2>
+            <div class="post-date">2020-03-05</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="c语言-动态链接库静态链接库">C语言 动态链接库&amp;静态链接库</h1>
+<blockquote>
+<p>C写的代码最终要想变成可执行文件，需要经过编译链接。</p>
+<p>​     在windows上，.c文件进过编译生成目标文件.obj，再将目标文件链接生成.exe。</p>
+<p>​     对于大型项目，会把程序划分成几个独立的模块，然后每个模块分别编译，在编译之后，由连接器把这些独立的片段“粘接到一起”。</p>
+</blockquote>
+<h2 id="静态链接库">静态链接库</h2>
+<p>采用静态链接库，lib中的指令都被直接包含在最终生成的EXE文件中。</p>
+<p>​     制作静态链接库</p>
+<p>​     有lib.h和lib.cpp两个文件，编译这个工程得到libTest.lib文件。这个文件就是一个函数库。将lib.h和libTest.lib提交给用户后，用户就能使用这个模块内的函数了。</p>
+<p>​     使用libTest.lib有两种方式：</p>
+<p>​     1.将lib.h和libTest.lib拷贝到工程子目录下。在要使用的.c文件中，加上lib.h头文件引用，加上#pragma comment(lib, “libTest.lib”)。这样就可以调用静态链接库。这句代码的意思是指本文件生成的.obj文件应该和libTest.lib一起链接。</p>
+<p>​     2.在VS工程中，填入库文件libTest.lib路径。也是可行的。</p>
+<p>​     库不能单独执行</p>
+<p>​     库提供一些可以给别的程序调用的内容，别的程序要调用它必须以某种方式指明它要调用。</p>
+<h2 id="动态链接库dll">动态链接库(<strong>.dll</strong>)</h2>
+<p>​	动态链接库可以理解为将源代码编译成目标代码后打成的库。该目标代码库可被其他进程在执行时动态调用。动态链接库在程序执行时动态进行调用和卸载。</p>
+<p>​    制作动态链接库</p>
+<p>​    有dll.h和dll.cpp两个文件，编译生成 dllTest.dll 和 dllTest.lib。</p>
+<p>​    <strong>动态库调用</strong>：</p>
+<p>​    1.将.dll和.lib拷贝到要使用的目录(.lib到.c同级目录, .dll到debug目录)下，然后在.cpp文件中加上#pragma comment(lib, “dllTest.lib”)，然后通过extern 声明引用dll.cpp中的函数。接着编译、链接、执行就会得到结果。对于动态链接库，链接的时候需要.lib文件，运行的时候需要.dll文件。</p>
+<p>​     2.在工程中使用loadLibrary动态的载入dll。</p>
+<h2 id="lib文件的区别">.lib文件的区别</h2>
+<p>​	 静态库对应的.lib文件叫静态库，本身包含了实际执行代码、符号表等等。当生成可执行文件以后，可执行文件包含所有的代码，因此，在可执行文件运行时就不再需要静态库。但是这样最后的程序占用磁盘空间较大。如果有多个进程在内存中运行，内存中就存有多份相同的库函数代码，因此占用内存空间较多。</p>
+<p>​     动态库对应的.lib文件叫导入库，实际的执行代码位于动态库中，导入库只包含了地址符号表，确保程序找到对应函数的一些基本地址信息。最终的可执行文件不包含DLL中的内容，只是通过导入库(.lib)知道了相应的地址信息，因此，可执行文件在运行时动态得去加载DLL。多个应用程序可以同时使用一个dll，有效的节省硬盘空间。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ChenHaoHere.github.io/tag/C/C++/" class="tag">
+                    C/C++
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ChenHaoHere.github.io/post/define-jian-dan-zong-jie/">
+                  <h3 class="post-title">
+                    #define简单总结
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'b1c1c486e06b254876e8',
+        clientSecret: 'ec23f953b6a1b1a77836cbf6c982729cb8737578',
+        repo: 'ChenHaoHere.github.io',
+        owner: 'ChenHaoHere',
+        admin: ['ChenHaoHere'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
