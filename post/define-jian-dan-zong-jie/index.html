@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1583398158014">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1583398776031">
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
@@ -39,7 +39,7 @@ You can use the #define directive to give a meaningful..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://ChenHaoHere.github.io">
-        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1583398158014" class="site-logo">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1583398776031" class="site-logo">
         <h1 class="site-title">Blabla</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -259,7 +259,27 @@ char b=ToChar(a);//b='a', #@用来给参数加单引号
 char c[]=ToString(a);//c=&quot;1234&quot;, #用来给参数加双引号
 </code></pre>
 </li>
+<li>
+<p>LOG日志与do{}while(0)</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define BUFSIZE 1024
+#define LOG(str) \
+do \
+{\
+    fprintf(stderr, &quot;[%s:%d %s %s]:%s\r\n&quot;,  __FILE__, __LINE__, __DATE__, __TIME__, str); \
+}while(0)
+int main()
+{
+    char *buf = (char *)malloc(BUFSIZE);
+    LOG(&quot;malloc for buf&quot;);
+    free(buf);
+    return 0;
+}
+</code></pre>
+</li>
 </ol>
+<p>输出为: <em>[macro.c:12 Jan 13 2019 22:38:33]:malloc for buf</em></p>
 
             </div>
             

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-05T08:49:24.470Z</updated>
+    <updated>2020-03-05T08:59:38.854Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -170,7 +170,27 @@ char b=ToChar(a);//b='a', #@用来给参数加单引号
 char c[]=ToString(a);//c=&quot;1234&quot;, #用来给参数加双引号
 </code></pre>
 </li>
+<li>
+<p>LOG日志与do{}while(0)</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define BUFSIZE 1024
+#define LOG(str) \
+do \
+{\
+    fprintf(stderr, &quot;[%s:%d %s %s]:%s\r\n&quot;,  __FILE__, __LINE__, __DATE__, __TIME__, str); \
+}while(0)
+int main()
+{
+    char *buf = (char *)malloc(BUFSIZE);
+    LOG(&quot;malloc for buf&quot;);
+    free(buf);
+    return 0;
+}
+</code></pre>
+</li>
 </ol>
+<p>输出为: <em>[macro.c:12 Jan 13 2019 22:38:33]:malloc for buf</em></p>
 ]]></content>
     </entry>
     <entry>
