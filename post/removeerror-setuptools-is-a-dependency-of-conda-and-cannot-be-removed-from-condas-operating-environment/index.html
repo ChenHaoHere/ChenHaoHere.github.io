@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Linux操作 | Blabla</title>
+<title>RemoveError: &#39;setuptools&#39; is a dependency of conda and cannot be removed from conda&#39;s operating environment. | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,17 +24,12 @@
 
 
 
-    <meta name="description" content="Linux操作
+    <meta name="description" content="
+今天conda update pytorch的时候报错
 
-
-anaconda python环境变量配置
-查看显卡状态
-文件操作
-
-
-
-echo 'export PATH=&quot;/home/ch/anaconda3/bin:$PATH&quot;' &gt;&gt; ~/.b..." />
-    <meta name="keywords" content="Linux" />
+RemoveError: 'setuptools' is a dependency of conda and cannot be removed from
+conda's oper..." />
+    <meta name="keywords" content="Python" />
   </head>
   <body>
     <div id="app" class="main">
@@ -105,49 +100,26 @@ echo 'export PATH=&quot;/home/ch/anaconda3/bin:$PATH&quot;' &gt;&gt; ~/.b..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Linux操作</h2>
-            <div class="post-date">2020-02-29</div>
+            <h2 class="post-title">RemoveError: &#39;setuptools&#39; is a dependency of conda and cannot be removed from conda&#39;s operating environment.</h2>
+            <div class="post-date">2020-03-10</div>
             
             <div class="post-content" v-pre>
-              <h1 id="linux操作">Linux操作</h1>
-<blockquote>
-<ol>
-<li>anaconda python环境变量配置</li>
-<li>查看显卡状态</li>
-<li>文件操作</li>
-</ol>
+              <blockquote>
+<p>今天conda update pytorch的时候报错</p>
 </blockquote>
-<hr>
-<pre><code class="language-linux">echo 'export PATH=&quot;/home/ch/anaconda3/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
-source ~/.bashrc
+<pre><code>RemoveError: 'setuptools' is a dependency of conda and cannot be removed from
+conda's operating environment.
 </code></pre>
-<hr>
-<p>暂态</p>
-<pre><code class="language-cmake">nvidia-smi
-</code></pre>
-<p>利用<strong>watch</strong>周期性的查看</p>
-<p>watch的作用</p>
-<pre><code>ch@host69:~$ whatis watch
-watch (1)            - execute a program periodically, showing output fullscreen
-</code></pre>
-<p>watch的基本用法</p>
-<pre><code>$ watch [options]  command
-</code></pre>
-<p>最常用的参数是 -n， 后面指定是每多少秒来执行一次命令</p>
-<p>每10s查看显卡状态</p>
-<pre><code>watch -n 10 nvidia-smi
-</code></pre>
-<hr>
-<p><strong>cp</strong>指令，用于复制文件或者目录到本机指定的目录</p>
-<pre><code>$ cp /home/A /home/B
-</code></pre>
+<p>网上说conda update conda可以, 但对我不适用<br>
+google了一下, 解决了, 用的是<br>
+<strong>conda update --force conda</strong></p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/linux/" class="tag">
-                    Linux
+                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
+                    Python
                   </a>
                 
               </div>
@@ -155,9 +127,9 @@ watch (1)            - execute a program periodically, showing output fullscreen
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/pytorch/">
+                <a href="https://ChenHaoHere.github.io/post/c-yu-yan-dong-tai-lian-jie-ku-andjing-tai-lian-jie-ku/">
                   <h3 class="post-title">
-                    pytorch
+                    C语言 动态链接库&amp;静态链接库
                   </h3>
                 </a>
               </div>
