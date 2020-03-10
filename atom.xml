@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-10T00:28:03.670Z</updated>
+    <updated>2020-03-10T11:08:53.144Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,33 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[Anaconda虚拟环境]]></title>
+        <id>https://ChenHaoHere.github.io/post/anaconda-xu-ni-huan-jing/</id>
+        <link href="https://ChenHaoHere.github.io/post/anaconda-xu-ni-huan-jing/">
+        </link>
+        <updated>2020-03-10T11:04:28.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>创建</strong></p>
+<pre><code>conda create  your_env_name python=x.x
+</code></pre>
+<p><strong>激活</strong></p>
+<pre><code>activate your_env_name
+</code></pre>
+<p><strong>退出当前虚拟环境</strong></p>
+<pre><code>deactivate
+</code></pre>
+<p><strong>虚拟环境信息</strong></p>
+<pre><code>conda info --envs
+conda env list
+</code></pre>
+<p><strong>删除虚拟环境</strong></p>
+<pre><code>conda remove -n your_env_name --all
+</code></pre>
+<p><strong>删除环境中的某个包</strong></p>
+<pre><code>conda remove --name $your_env_name  $package_name 
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[RemoveError: 'setuptools' is a dependency of conda and cannot be removed from conda's operating environment.]]></title>
         <id>https://ChenHaoHere.github.io/post/removeerror-setuptools-is-a-dependency-of-conda-and-cannot-be-removed-from-condas-operating-environment/</id>
@@ -391,20 +418,6 @@ tensor([[ 1.,  2.,  3.,  4.],
 tensor([[ 2.,  4.],
         [ 6.,  8.],
         [10., 12.]])
-</code></pre>
-<hr>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[numpy常用]]></title>
-        <id>https://ChenHaoHere.github.io/post/numpy-chang-yong/</id>
-        <link href="https://ChenHaoHere.github.io/post/numpy-chang-yong/">
-        </link>
-        <updated>2020-02-28T02:20:00.000Z</updated>
-        <content type="html"><![CDATA[<hr>
-<p>np.random各种method</p>
-<p><a href="https://www.cnblogs.com/zuoshoushizi/p/8727773.html">https://www.cnblogs.com/zuoshoushizi/p/8727773.html</a></p>
-<pre><code class="language-python">np.random.normal(mean, var, size)#正态分布
 </code></pre>
 <hr>
 ]]></content>

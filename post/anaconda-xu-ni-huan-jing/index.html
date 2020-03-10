@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>pip 下载超时 | Blabla</title>
+<title>Anaconda虚拟环境 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,11 +24,19 @@
 
 
 
-    <meta name="description" content="pip 下载超时
-pip install --default-timeout=100 ThePackage
+    <meta name="description" content="创建
+conda create  your_env_name python=x.x
 
-" />
-    <meta name="keywords" content="jottings" />
+激活
+activate your_env_name
+
+退出当前虚拟环境
+deactivate
+
+虚拟环境信息
+conda info --envs
+cond..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -99,30 +107,38 @@ pip install --default-timeout=100 ThePackage
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">pip 下载超时</h2>
-            <div class="post-date">2020-03-04</div>
+            <h2 class="post-title">Anaconda虚拟环境</h2>
+            <div class="post-date">2020-03-10</div>
             
             <div class="post-content" v-pre>
-              <h1 id="pip-下载超时">pip 下载超时</h1>
-<pre><code>pip install --default-timeout=100 ThePackage
+              <p><strong>创建</strong></p>
+<pre><code>conda create  your_env_name python=x.x
+</code></pre>
+<p><strong>激活</strong></p>
+<pre><code>activate your_env_name
+</code></pre>
+<p><strong>退出当前虚拟环境</strong></p>
+<pre><code>deactivate
+</code></pre>
+<p><strong>虚拟环境信息</strong></p>
+<pre><code>conda info --envs
+conda env list
+</code></pre>
+<p><strong>删除虚拟环境</strong></p>
+<pre><code>conda remove -n your_env_name --all
+</code></pre>
+<p><strong>删除环境中的某个包</strong></p>
+<pre><code>conda remove --name $your_env_name  $package_name 
 </code></pre>
 
             </div>
             
-              <div class="tag-container">
-                
-                  <a href="https://ChenHaoHere.github.io/tag/jottings/" class="tag">
-                    jottings
-                  </a>
-                
-              </div>
-            
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/chu-li-da-liang-shu-ju/">
+                <a href="https://ChenHaoHere.github.io/post/removeerror-setuptools-is-a-dependency-of-conda-and-cannot-be-removed-from-condas-operating-environment/">
                   <h3 class="post-title">
-                    处理大量数据
+                    RemoveError: &#39;setuptools&#39; is a dependency of conda and cannot be removed from conda&#39;s operating environment.
                   </h3>
                 </a>
               </div>
