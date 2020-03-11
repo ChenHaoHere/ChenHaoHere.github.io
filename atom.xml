@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-10T11:08:53.144Z</updated>
+    <updated>2020-03-11T23:58:59.806Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[shutdown jupyter notebook from remote via ssh]]></title>
+        <id>https://ChenHaoHere.github.io/post/shutdown-jupyter-notebook-from-remote-via-ssh/</id>
+        <link href="https://ChenHaoHere.github.io/post/shutdown-jupyter-notebook-from-remote-via-ssh/">
+        </link>
+        <updated>2020-03-11T23:57:39.000Z</updated>
+        <content type="html"><![CDATA[<p>If you launch the notebook from a command prompt, you can shut it down by pressing Ctrl-C in that same command prompt. If not, you can run <code>jupyter notebook stop 8888</code>.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Anaconda虚拟环境]]></title>
         <id>https://ChenHaoHere.github.io/post/anaconda-xu-ni-huan-jing/</id>
@@ -375,51 +384,6 @@ watch (1)            - execute a program periodically, showing output fullscreen
 <p><strong>cp</strong>指令，用于复制文件或者目录到本机指定的目录</p>
 <pre><code>$ cp /home/A /home/B
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[pytorch]]></title>
-        <id>https://ChenHaoHere.github.io/post/pytorch/</id>
-        <link href="https://ChenHaoHere.github.io/post/pytorch/">
-        </link>
-        <updated>2020-02-28T05:16:55.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<ol>
-<li><strong>numpy与torch之间相互转换</strong></li>
-<li><strong>pytorch中index_select()的用法</strong></li>
-<li></li>
-</ol>
-</blockquote>
-<hr>
-<p><strong>numpy与torch之间相互转换</strong></p>
-<pre><code class="language-python">np_arr = np.array([1,2,3,4])
-tor_arr = torch.from_numpy(np_arr)
-tor2numpy = tor_arr.numpy()
-</code></pre>
-<hr>
-<p><strong>pytorch中index_select()的用法</strong></p>
-<pre><code class="language-python">a = torch.linspace(1, 12, steps=12).view(3, 4)
-print(a)
-b = torch.index_select(a, 0, torch.tensor([0, 2]))
-print(b)
-print(a.index_select(0, torch.tensor([0, 2])))
-c = torch.index_select(a, 1, torch.tensor([1, 3]))
-print(c)
-</code></pre>
-<p>先定义了一个tensor，这里用到了linspace和view方法。<br>
-第一个参数是索引的对象，第二个参数0表示按行索引，1表示按列进行索引，第三个参数是一个tensor，就是索引的序号，比如b里面tensor[0， 2]表示第0行和第2行，c里面tensor[1, 3]表示第1列和第3列。</p>
-<pre><code class="language-python">tensor([[ 1.,  2.,  3.,  4.],
-        [ 5.,  6.,  7.,  8.],
-        [ 9., 10., 11., 12.]])
-tensor([[ 1.,  2.,  3.,  4.],
-        [ 9., 10., 11., 12.]])
-tensor([[ 1.,  2.,  3.,  4.],
-        [ 9., 10., 11., 12.]])
-tensor([[ 2.,  4.],
-        [ 6.,  8.],
-        [10., 12.]])
-</code></pre>
-<hr>
 ]]></content>
     </entry>
 </feed>
