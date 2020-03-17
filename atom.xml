@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-11T23:58:59.806Z</updated>
+    <updated>2020-03-17T05:16:57.113Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,60 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[使用union实现位操作]]></title>
+        <id>https://ChenHaoHere.github.io/post/shi-yong-union-shi-xian-wei-cao-zuo/</id>
+        <link href="https://ChenHaoHere.github.io/post/shi-yong-union-shi-xian-wei-cao-zuo/">
+        </link>
+        <updated>2020-03-17T05:16:25.000Z</updated>
+        <content type="html"><![CDATA[<p>使用union实现位操作</p>
+<blockquote>
+<p>C语言关键字<strong>union</strong>使结构体里的变量共享一段内存</p>
+</blockquote>
+<p>eg:</p>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+typedef struct {
+    //也可以全部改用unsigned char, 会好看些
+    char bit0 : 1;
+    char bit1 : 1;
+    char bit2 : 1;
+    char bit3 : 1;
+    char bit4 : 1;
+    char bit5 : 1;
+    char bit6 : 1;
+    char bit7 : 1;
+}bits;
+typedef union {
+    char data_char;
+    bits data_bits;
+}utype;
+
+typedef struct {
+    int port;
+    utype LED;//这样就可以对8个LED单独控制
+}TEST;
+
+int main(){
+    TEST test;
+    test.port = 01;
+    test.LED.data_char = 0x00;//全灭
+    printf(&quot;%d\n&quot;, test.LED.data_bits.bit0);//0
+    printf(&quot;%d\n&quot;, test.LED.data_bits.bit1);//0
+    printf(&quot;%d\n&quot;, test.LED.data_bits);//0
+
+    test.LED.data_bits.bit1 = 1;//针对第一位操作, 点亮它
+    printf(&quot;%d\n&quot;, test.LED.data_bits.bit0);//0
+    printf(&quot;%d\n&quot;, test.LED.data_bits.bit1);//0
+    printf(&quot;%d\n&quot;, test.LED.data_bits);//2
+
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[shutdown jupyter notebook from remote via ssh]]></title>
         <id>https://ChenHaoHere.github.io/post/shutdown-jupyter-notebook-from-remote-via-ssh/</id>
@@ -344,46 +398,6 @@ in:description example	描述中有“example”</p>
 forks:&gt;1000		fork&gt;1000<br>
 pushed:&gt;2019-09-01		2019年9月1日后有更新的</p>
 <p>language:java</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Linux操作]]></title>
-        <id>https://ChenHaoHere.github.io/post/linux-cao-zuo/</id>
-        <link href="https://ChenHaoHere.github.io/post/linux-cao-zuo/">
-        </link>
-        <updated>2020-02-29T06:45:19.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="linux操作">Linux操作</h1>
-<blockquote>
-<ol>
-<li>anaconda python环境变量配置</li>
-<li>查看显卡状态</li>
-<li>文件操作</li>
-</ol>
-</blockquote>
-<hr>
-<pre><code class="language-linux">echo 'export PATH=&quot;/home/ch/anaconda3/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
-source ~/.bashrc
-</code></pre>
-<hr>
-<p>暂态</p>
-<pre><code class="language-cmake">nvidia-smi
-</code></pre>
-<p>利用<strong>watch</strong>周期性的查看</p>
-<p>watch的作用</p>
-<pre><code>ch@host69:~$ whatis watch
-watch (1)            - execute a program periodically, showing output fullscreen
-</code></pre>
-<p>watch的基本用法</p>
-<pre><code>$ watch [options]  command
-</code></pre>
-<p>最常用的参数是 -n， 后面指定是每多少秒来执行一次命令</p>
-<p>每10s查看显卡状态</p>
-<pre><code>watch -n 10 nvidia-smi
-</code></pre>
-<hr>
-<p><strong>cp</strong>指令，用于复制文件或者目录到本机指定的目录</p>
-<pre><code>$ cp /home/A /home/B
-</code></pre>
 ]]></content>
     </entry>
 </feed>

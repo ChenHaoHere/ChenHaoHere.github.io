@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>处理大量数据 | Blabla</title>
+<title>使用union实现位操作 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,15 +24,18 @@
 
 
 
-    <meta name="description" content="待学习
+    <meta name="description" content="使用union实现位操作
 
-pandas里可以用chunksize来批处理
-字符串可以转换成category型来节省内存
-vaex
-disk.frame和pandas语法一样,可以做比内存还大的数据的处理
+C语言关键字union使结构体里的变量共享一段内存
 
-..." />
-    <meta name="keywords" content="Python" />
+eg:
+#include &lt;iostream&gt;
+
+using namespace std;
+
+typedef struct {
+    //也可以..." />
+    <meta name="keywords" content="C/C++" />
   </head>
   <body>
     <div id="app" class="main">
@@ -103,24 +106,63 @@ disk.frame和pandas语法一样,可以做比内存还大的数据的处理
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">处理大量数据</h2>
-            <div class="post-date">2020-03-04</div>
+            <h2 class="post-title">使用union实现位操作</h2>
+            <div class="post-date">2020-03-17</div>
             
             <div class="post-content" v-pre>
-              <p><strong>待学习</strong></p>
-<ol>
-<li>pandas里可以用chunksize来批处理</li>
-<li>字符串可以转换成category型来节省内存</li>
-<li>vaex</li>
-<li>disk.frame和pandas语法一样,可以做比内存还大的数据的处理</li>
-</ol>
+              <p>使用union实现位操作</p>
+<blockquote>
+<p>C语言关键字<strong>union</strong>使结构体里的变量共享一段内存</p>
+</blockquote>
+<p>eg:</p>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+typedef struct {
+    //也可以全部改用unsigned char, 会好看些
+    char bit0 : 1;
+    char bit1 : 1;
+    char bit2 : 1;
+    char bit3 : 1;
+    char bit4 : 1;
+    char bit5 : 1;
+    char bit6 : 1;
+    char bit7 : 1;
+}bits;
+typedef union {
+    char data_char;
+    bits data_bits;
+}utype;
+
+typedef struct {
+    int port;
+    utype LED;//这样就可以对8个LED单独控制
+}TEST;
+
+int main(){
+    TEST test;
+    test.port = 01;
+    test.LED.data_char = 0x00;//全灭
+    printf(&quot;%d\n&quot;, test.LED.data_bits.bit0);//0
+    printf(&quot;%d\n&quot;, test.LED.data_bits.bit1);//0
+    printf(&quot;%d\n&quot;, test.LED.data_bits);//0
+
+    test.LED.data_bits.bit1 = 1;//针对第一位操作, 点亮它
+    printf(&quot;%d\n&quot;, test.LED.data_bits.bit0);//0
+    printf(&quot;%d\n&quot;, test.LED.data_bits.bit1);//0
+    printf(&quot;%d\n&quot;, test.LED.data_bits);//2
+
+    return 0;
+}
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
-                    Python
+                  <a href="https://ChenHaoHere.github.io/tag/C/C++/" class="tag">
+                    C/C++
                   </a>
                 
               </div>
@@ -128,9 +170,9 @@ disk.frame和pandas语法一样,可以做比内存还大的数据的处理
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/mian-xiang-shu-ju-ke-xue-de-python-duo-jin-cheng/">
+                <a href="https://ChenHaoHere.github.io/post/shutdown-jupyter-notebook-from-remote-via-ssh/">
                   <h3 class="post-title">
-                    面向数据科学的Python多进程
+                    shutdown jupyter notebook from remote via ssh
                   </h3>
                 </a>
               </div>
