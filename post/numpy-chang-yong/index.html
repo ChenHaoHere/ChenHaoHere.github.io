@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1584488941476">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1584535488313">
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
@@ -24,13 +24,17 @@
 
 
 
-    <meta name="description" content="
+    <meta name="description" content="numpy常用
+
+
+np.random各种method
+np.all()/any()
+
+
+
 np.random各种method
 https://www.cnblogs.com/zuoshoushizi/p/8727773.html
-np.random.normal(mean, var, size)#正态分布
-
-
-..." />
+np.r..." />
     <meta name="keywords" content="Python" />
   </head>
   <body>
@@ -40,7 +44,7 @@ np.random.normal(mean, var, size)#正态分布
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://ChenHaoHere.github.io">
-        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1584488941476" class="site-logo">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1584535488313" class="site-logo">
         <h1 class="site-title">Blabla</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -106,11 +110,22 @@ np.random.normal(mean, var, size)#正态分布
             <div class="post-date">2020-02-28</div>
             
             <div class="post-content" v-pre>
-              <hr>
+              <h1 id="numpy常用">numpy常用</h1>
+<blockquote>
+<ol>
+<li>np.random各种method</li>
+<li>np.all()/any()</li>
+</ol>
+</blockquote>
+<hr>
 <p>np.random各种method</p>
 <p><a href="https://www.cnblogs.com/zuoshoushizi/p/8727773.html">https://www.cnblogs.com/zuoshoushizi/p/8727773.html</a></p>
 <pre><code class="language-python">np.random.normal(mean, var, size)#正态分布
+np.random.randint(low, [high, size])
 </code></pre>
+<hr>
+<p>np.any()  判断一个数组是不是至少有一个非零/True, 有就返回True, 没有就False</p>
+<p>np.all()  判断一个数组是不是全为非零/True, 是就返回True, 不是就False</p>
 <hr>
 
             </div>
