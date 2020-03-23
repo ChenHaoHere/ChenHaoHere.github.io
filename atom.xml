@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-18T12:44:51.801Z</updated>
+    <updated>2020-03-23T04:57:22.849Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[list [[]] * num 不能随便用]]></title>
+        <id>https://ChenHaoHere.github.io/post/list-num-bu-neng-sui-bian-yong/</id>
+        <link href="https://ChenHaoHere.github.io/post/list-num-bu-neng-sui-bian-yong/">
+        </link>
+        <updated>2020-03-23T04:57:00.000Z</updated>
+        <content type="html"><![CDATA[<h1 id=""></h1>
+<p>今天想要动态建一个列表, 很自然的想到</p>
+<pre><code class="language-python">scores = [[]] * num
+for i in range(nun):
+    scores[i].append(result)
+</code></pre>
+<p>结果得到的结果每个都一模一样, 才发现原来这样子出来的list里的list是<strong>共享内存</strong>的, 实验如下</p>
+<pre><code class="language-python">a = [[]] * 8
+print(a) # [[], [], [], [], [], [], [], []]
+
+a[0].append(1) # 期望中a是[[1], [], [], [], [], [], [], []]
+print(a) # 实际上a是[[1], [1], [1], [1], [1], [1], [1], [1]]
+</code></pre>
+<p>验证也很好验证</p>
+<pre><code class="language-python">print(id(a[0])) # 140650110134408
+print(id(a[1])) # 140650110134408 显然内存是共享的
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[使用union实现位操作]]></title>
         <id>https://ChenHaoHere.github.io/post/shi-yong-union-shi-xian-wei-cao-zuo/</id>
@@ -382,22 +407,6 @@ def job(i):
 result = Parallel(n_jobs=5, verbose=1)(delayed(job)(j) for j in range(5))
 result
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Github高级搜索]]></title>
-        <id>https://ChenHaoHere.github.io/post/github-gao-ji-sou-suo/</id>
-        <link href="https://ChenHaoHere.github.io/post/github-gao-ji-sou-suo/">
-        </link>
-        <updated>2020-02-29T07:42:39.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="github高级搜索">GitHub高级搜索</h1>
-<p>in:name example		名字中有“example”<br>
-in:readme example		readme中有“example”<br>
-in:description example	描述中有“example”</p>
-<p>stars:&gt;1000		star&gt;1000<br>
-forks:&gt;1000		fork&gt;1000<br>
-pushed:&gt;2019-09-01		2019年9月1日后有更新的</p>
-<p>language:java</p>
 ]]></content>
     </entry>
 </feed>

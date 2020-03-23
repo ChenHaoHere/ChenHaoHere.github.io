@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>RemoveError: &#39;setuptools&#39; is a dependency of conda and cannot be removed from conda&#39;s operating environment. | Blabla</title>
+<title>list [[]] * num 不能随便用 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -25,10 +25,12 @@
 
 
     <meta name="description" content="
-今天conda update pytorch的时候报错
+今天想要动态建一个列表, 很自然的想到
+scores = [[]] * num
+for i in range(nun):
+    scores[i].append(result)
 
-RemoveError: 'setuptools' is a dependency of conda and cannot be removed from
-conda's oper..." />
+结果得到的结果每个都一模一样, 才发现原来这样子出来的l..." />
     <meta name="keywords" content="Python" />
   </head>
   <body>
@@ -100,19 +102,27 @@ conda's oper..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">RemoveError: &#39;setuptools&#39; is a dependency of conda and cannot be removed from conda&#39;s operating environment.</h2>
-            <div class="post-date">2020-03-10</div>
+            <h2 class="post-title">list [[]] * num 不能随便用</h2>
+            <div class="post-date">2020-03-23</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>今天conda update pytorch的时候报错</p>
-</blockquote>
-<pre><code>RemoveError: 'setuptools' is a dependency of conda and cannot be removed from
-conda's operating environment.
+              <h1 id=""></h1>
+<p>今天想要动态建一个列表, 很自然的想到</p>
+<pre><code class="language-python">scores = [[]] * num
+for i in range(nun):
+    scores[i].append(result)
 </code></pre>
-<p>网上说conda update conda可以, 但对我不适用<br>
-google了一下, 解决了, 用的是<br>
-<strong>conda update --force conda</strong></p>
+<p>结果得到的结果每个都一模一样, 才发现原来这样子出来的list里的list是<strong>共享内存</strong>的, 实验如下</p>
+<pre><code class="language-python">a = [[]] * 8
+print(a) # [[], [], [], [], [], [], [], []]
+
+a[0].append(1) # 期望中a是[[1], [], [], [], [], [], [], []]
+print(a) # 实际上a是[[1], [1], [1], [1], [1], [1], [1], [1]]
+</code></pre>
+<p>验证也很好验证</p>
+<pre><code class="language-python">print(id(a[0])) # 140650110134408
+print(id(a[1])) # 140650110134408 显然内存是共享的
+</code></pre>
 
             </div>
             
@@ -127,9 +137,9 @@ google了一下, 解决了, 用的是<br>
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/c-yu-yan-dong-tai-lian-jie-ku-andjing-tai-lian-jie-ku/">
+                <a href="https://ChenHaoHere.github.io/post/shi-yong-union-shi-xian-wei-cao-zuo/">
                   <h3 class="post-title">
-                    C语言 动态链接库&amp;静态链接库
+                    使用union实现位操作
                   </h3>
                 </a>
               </div>
