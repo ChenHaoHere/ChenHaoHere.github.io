@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-24T23:56:08.625Z</updated>
+    <updated>2020-03-25T13:27:07.471Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[vscode插件推荐]]></title>
+        <id>https://ChenHaoHere.github.io/post/vscode-cha-jian-tui-jian/</id>
+        <link href="https://ChenHaoHere.github.io/post/vscode-cha-jian-tui-jian/">
+        </link>
+        <updated>2020-03-25T13:26:23.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_38698753/article/details/93190356">https://blog.csdn.net/qq_38698753/article/details/93190356</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[chrome安装在别的盘]]></title>
         <id>https://ChenHaoHere.github.io/post/chrome-an-zhuang-zai-bie-de-pan/</id>
@@ -377,21 +386,6 @@ int main()
         <content type="html"><![CDATA[<h1 id="pip-下载超时">pip 下载超时</h1>
 <pre><code>pip install --default-timeout=100 ThePackage
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[处理大量数据]]></title>
-        <id>https://ChenHaoHere.github.io/post/chu-li-da-liang-shu-ju/</id>
-        <link href="https://ChenHaoHere.github.io/post/chu-li-da-liang-shu-ju/">
-        </link>
-        <updated>2020-03-03T23:57:40.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>待学习</strong></p>
-<ol>
-<li>pandas里可以用chunksize来批处理</li>
-<li>字符串可以转换成category型来节省内存</li>
-<li>vaex</li>
-<li>disk.frame和pandas语法一样,可以做比内存还大的数据的处理</li>
-</ol>
 ]]></content>
     </entry>
 </feed>
