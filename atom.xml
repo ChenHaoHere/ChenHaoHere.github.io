@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-25T13:27:07.471Z</updated>
+    <updated>2020-03-26T00:38:27.783Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[.whl 下载]]></title>
+        <id>https://ChenHaoHere.github.io/post/whl-xia-zai/</id>
+        <link href="https://ChenHaoHere.github.io/post/whl-xia-zai/">
+        </link>
+        <updated>2020-03-26T00:37:40.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://pypi.org/">https://pypi.org/</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[vscode插件推荐]]></title>
         <id>https://ChenHaoHere.github.io/post/vscode-cha-jian-tui-jian/</id>
@@ -375,17 +384,6 @@ int main()
 </li>
 </ol>
 <p>输出为: <em>[macro.c:12 Jan 13 2019 22:38:33]:malloc for buf</em></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[pip 下载超时]]></title>
-        <id>https://ChenHaoHere.github.io/post/pip-xia-zai-chao-shi/</id>
-        <link href="https://ChenHaoHere.github.io/post/pip-xia-zai-chao-shi/">
-        </link>
-        <updated>2020-03-04T14:16:01.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="pip-下载超时">pip 下载超时</h1>
-<pre><code>pip install --default-timeout=100 ThePackage
-</code></pre>
 ]]></content>
     </entry>
 </feed>
