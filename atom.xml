@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-26T00:38:27.783Z</updated>
+    <updated>2020-03-27T04:52:23.400Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[VS code yapf整理代码]]></title>
+        <id>https://ChenHaoHere.github.io/post/vs-code-yapf-zheng-li-dai-ma/</id>
+        <link href="https://ChenHaoHere.github.io/post/vs-code-yapf-zheng-li-dai-ma/">
+        </link>
+        <updated>2020-03-27T04:50:23.000Z</updated>
+        <content type="html"><![CDATA[<p>&quot;python.formatting.provider&quot;: &quot;yapf&quot;</p>
+<p>然后<strong>Alt+Shift+F</strong>就可以自动格式化代码</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[.whl 下载]]></title>
         <id>https://ChenHaoHere.github.io/post/whl-xia-zai/</id>
@@ -201,189 +211,6 @@ google了一下, 解决了, 用的是<br>
 <h2 id="lib文件的区别">.lib文件的区别</h2>
 <p>​	 静态库对应的.lib文件叫静态库，本身包含了实际执行代码、符号表等等。当生成可执行文件以后，可执行文件包含所有的代码，因此，在可执行文件运行时就不再需要静态库。但是这样最后的程序占用磁盘空间较大。如果有多个进程在内存中运行，内存中就存有多份相同的库函数代码，因此占用内存空间较多。</p>
 <p>​     动态库对应的.lib文件叫导入库，实际的执行代码位于动态库中，导入库只包含了地址符号表，确保程序找到对应函数的一些基本地址信息。最终的可执行文件不包含DLL中的内容，只是通过导入库(.lib)知道了相应的地址信息，因此，可执行文件在运行时动态得去加载DLL。多个应用程序可以同时使用一个dll，有效的节省硬盘空间。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[#define简单总结]]></title>
-        <id>https://ChenHaoHere.github.io/post/define-jian-dan-zong-jie/</id>
-        <link href="https://ChenHaoHere.github.io/post/define-jian-dan-zong-jie/">
-        </link>
-        <updated>2020-03-05T08:39:25.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="define简单总结">#define简单总结</h1>
-<p><em>C primer plus 第十六章</em></p>
-<blockquote>
-<p><strong>Definition</strong>：</p>
-<p>The #define Directive</p>
-<p>You can use the #define directive to give a meaningful name to a constant in your program. The two forms of the syntax are:</p>
-<p>Syntax</p>
-<p>#define identifier token-stringopt</p>
-<p>#define identifier[( identifieropt, ... , identifieropt )] token-stringopt</p>
-</blockquote>
-<p>##明示常量</p>
-<pre><code class="language-c">#define Pi 3.14
-#define PX printf(&quot;X is %d.\n&quot;, x)
-</code></pre>
-<p>##在#define中使用参数</p>
-<pre><code class="language-c">#define SQUARE(X) X*X /*SQAURE(x+2) --&gt; x+2*x+2*/
-#define SQUARE(X) (X)*(X) /*100/SQUARE(2) --&gt; 100/(2)*(2)*/
-#define SQUARE(X) ((X)*(X)) /*SQUARE(++x) --&gt; 视编译器不同可能得出不同的结果, 如结果等于(x+1)*(x+2)或者(x+2)*(x+2) 所以尽量避免在宏定义中使用++x*/
-</code></pre>
-<p>##用宏参数创建字符串: #运算符</p>
-<pre><code class="language-c">#define PSQR(x) printf(&quot;The square of &quot; #x &quot; is %d.\n&quot;,((x)*(x)))
-
-int main(void)
-{ 
-	int y = 5;
-	PSQR(y);
-	PSQR(2 + 4);
-	return 0;
-}
-</code></pre>
-<p>输出如下:</p>
-<p><em>The square of y is 25.<br>
-The square of 2 + 4 is 36.</em></p>
-<p>调用第一个宏的时候, 用&quot;y&quot;替换#x. 调用第二个宏的时候, 用&quot;2 + 4&quot;替换#x. ANSI C 字符串的串联特性将这些字符串与printf()语句的其它字符串组合, 生成最终的字符串. 例如, 第一次调用变为:</p>
-<p><em>printf(&quot;The square of &quot; &quot;y&quot; &quot; is %d.\n&quot;, ((y)</em>(y)));</p>
-<p>然后， 字符串串联功能将这3个相邻的字符串组合成一个字符串:</p>
-<p><em>&quot;The square of y is %d.\n&quot;</em></p>
-<h2 id="undef指令">#undef指令</h2>
-<pre><code class="language-c">#define LIMIT 100
-/*
-a lot of codes
-*/
-#undef LIMIT //就是取消已定义的LIMIT
-</code></pre>
-<p>有些预定义的宏是不能取消的, 如__DATE__等</p>
-<p>##常用的#define语句</p>
-<ol>
-<li>
-<p>得到指定地址上的一个字节或字</p>
-<pre><code class="language-c">#define  MEM_B(x)  ( *( (byte *) (x) ) )
-#define  MEM_W(x)  ( *( (word *) (x) ) )
-</code></pre>
-</li>
-<li>
-<p>求最大值和最小值</p>
-<pre><code class="language-c">#define  MAX(x,y) ( ((x) &gt; (y)) ? (x) : (y) )
-#define  MIN(x,y) ( ((x) &lt; (y)) ? (x) : (y) )
-</code></pre>
-</li>
-<li>
-<p>得到一个field在结构体(struct)中的偏移量</p>
-<pre><code class="language-c">#define FPOS(type, field) /
-/*lint -e545 */ ( (dword) &amp;(( type *) 0)-&gt; field ) /*lint +e545 */
-</code></pre>
-</li>
-<li>
-<p>得到一个结构体中field所占用的字节数</p>
-<pre><code class="language-c">#define FSIZ(type, field) sizeof( ((type *) 0)-&gt;field )
-</code></pre>
-</li>
-<li>
-<p>按照LSB格式把两个字节转化为一个Word</p>
-<pre><code class="language-c">#define  FLIPW(ray) ( (((word) (ray)[0]) * 256) + (ray)[1] )
-</code></pre>
-</li>
-<li>
-<p>得到一个变量的地址（word宽度）</p>
-<pre><code class="language-c">#define  B_PTR(var)  ( (byte *) (void *) &amp;(var) )
-#define  W_PTR(var)  ( (word *) (void *) &amp;(var) )
-</code></pre>
-</li>
-<li>
-<p>得到一个字的高位和低位字节</p>
-<pre><code class="language-c">#define  WORD_LO(xxx)  ((byte) ((word)(xxx) &amp; 255))
-#define  WORD_HI(xxx)  ((byte) ((word)(xxx) &gt;&gt; 8))
-</code></pre>
-</li>
-<li>
-<p>返回一个比X大的最接近的8的倍数</p>
-<pre><code class="language-c">#define RND8(x)       ((((x) + 7) / 8 ) * 8 )
-</code></pre>
-</li>
-<li>
-<p>将一个字母转换为大写</p>
-<pre><code class="language-c">#define  UPCASE(c) ( ((c) &gt;= 'a' &amp;&amp; (c) &lt;= 'z') ? ((c) - 0x20) : (c))
-</code></pre>
-</li>
-<li>
-<p>判断字符是不是10进值的数字</p>
-<pre><code class="language-c">#define  DECCHK(c) ((c) &gt;= '0' &amp;&amp; (c) &lt;= '9')
-</code></pre>
-</li>
-<li>
-<p>判断字符是不是16进值的数字</p>
-<pre><code class="language-c">#define  HEXCHK(c) ( ((c) &gt;= '0' &amp;&amp; (c) &lt;= '9') ||/
-
-((c) &gt;= 'A' &amp;&amp; (c) &lt;= 'F') ||/
-
-((c) &gt;= 'a' &amp;&amp; (c) &lt;= 'f') )
-</code></pre>
-</li>
-<li>
-<p>防止溢出的一个方法</p>
-<pre><code class="language-c">#define  INC_SAT(val)  (val = ((val)+1 &gt; (val)) ? (val)+1 : (val))
-</code></pre>
-</li>
-<li>
-<p>返回数组元素的个数</p>
-<pre><code class="language-c">#define  ARR_SIZE(a)  ( sizeof( (a) ) / sizeof( (a[0]) ) )
-</code></pre>
-</li>
-<li>
-<p>返回一个无符号数n尾的值MOD_BY_POWER_OF_TWO(X,n)=X%(2^n)</p>
-<pre><code class="language-c">#define MOD_BY_POWER_OF_TWO(val,mod_by) /
-
-         ( (dword)(val) &amp; (dword)((mod_by)-1) )
-</code></pre>
-</li>
-<li>
-<p>对于IO空间映射在存储空间的结构，输入输出处理</p>
-<pre><code class="language-c">#define inp(port)         (*((volatile byte *) (port)))
-
-#define inpw(port)        (*((volatile word *) (port)))
-
-#define inpdw(port)       (*((volatile dword *)(port)))
-
-#define outp(port, val)   (*((volatile byte *) (port)) = ((byte) (val)))
-
-#define outpw(port, val)  (*((volatile word *) (port)) = ((word) (val)))
-
-#define outpdw(port, val) (*((volatile dword *) (port)) = ((dword) (val)))
-</code></pre>
-</li>
-<li>
-<p>#define中的特殊标识符</p>
-<pre><code class="language-c">#define Conn(x,y) x##y
-#define ToChar(x) #@x
-#define ToString(x) #x
-
-int a=Conn(12,34);//a=1234, ##是连接
-char b=ToChar(a);//b='a', #@用来给参数加单引号
-char c[]=ToString(a);//c=&quot;1234&quot;, #用来给参数加双引号
-</code></pre>
-</li>
-<li>
-<p>LOG日志与do{}while(0)</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#define BUFSIZE 1024
-#define LOG(str) \
-do \
-{\
-    fprintf(stderr, &quot;[%s:%d %s %s]:%s\r\n&quot;,  __FILE__, __LINE__, __DATE__, __TIME__, str); \
-}while(0)
-int main()
-{
-    char *buf = (char *)malloc(BUFSIZE);
-    LOG(&quot;malloc for buf&quot;);
-    free(buf);
-    return 0;
-}
-</code></pre>
-</li>
-</ol>
-<p>输出为: <em>[macro.c:12 Jan 13 2019 22:38:33]:malloc for buf</em></p>
 ]]></content>
     </entry>
 </feed>
