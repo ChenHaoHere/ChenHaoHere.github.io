@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-03-30T08:58:13.263Z</updated>
+    <updated>2020-03-31T07:28:04.994Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,21 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[ windows10 磁贴]]></title>
+        <id>https://ChenHaoHere.github.io/post/windows10-ci-tie/</id>
+        <link href="https://ChenHaoHere.github.io/post/windows10-ci-tie/">
+        </link>
+        <updated>2020-03-31T07:27:39.000Z</updated>
+        <content type="html"><![CDATA[<!-- more -->
+<blockquote>
+<p>辛苦了大半个下午，终于把自己的win10变好看了</p>
+<p>主要是在磁贴上花了大功夫</p>
+<p>最后桌面是空的了，常用的在任务栏和开始菜单</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5CChenHao%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200331152709598.png" alt="image-20200331152709598" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[划分数据集]]></title>
         <id>https://ChenHaoHere.github.io/post/hua-fen-shu-ju-ji/</id>
@@ -172,23 +187,6 @@ conda env list
 <p><strong>删除环境中的某个包</strong></p>
 <pre><code>conda remove --name $your_env_name  $package_name 
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[RemoveError: 'setuptools' is a dependency of conda and cannot be removed from conda's operating environment.]]></title>
-        <id>https://ChenHaoHere.github.io/post/removeerror-setuptools-is-a-dependency-of-conda-and-cannot-be-removed-from-condas-operating-environment/</id>
-        <link href="https://ChenHaoHere.github.io/post/removeerror-setuptools-is-a-dependency-of-conda-and-cannot-be-removed-from-condas-operating-environment/">
-        </link>
-        <updated>2020-03-10T00:24:42.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>今天conda update pytorch的时候报错</p>
-</blockquote>
-<pre><code>RemoveError: 'setuptools' is a dependency of conda and cannot be removed from
-conda's operating environment.
-</code></pre>
-<p>网上说conda update conda可以, 但对我不适用<br>
-google了一下, 解决了, 用的是<br>
-<strong>conda update --force conda</strong></p>
 ]]></content>
     </entry>
 </feed>
