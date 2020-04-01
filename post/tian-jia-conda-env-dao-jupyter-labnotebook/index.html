@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>shutdown jupyter notebook from remote via ssh | Blabla</title>
+<title>添加conda env到jupyter lab/notebook | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,8 +24,10 @@
 
 
 
-    <meta name="description" content="If you launch the notebook from a command prompt, you can shut it down by pressing Ctrl-C in that same command prompt. I..." />
-    <meta name="keywords" content="jottings" />
+    <meta name="description" content=" conda activate cenv
+(cenv)$ conda install ipykernel
+(cenv)$ ipython kernel install --user --name=&lt;any_name_for_kerne..." />
+    <meta name="keywords" content="Python" />
   </head>
   <body>
     <div id="app" class="main">
@@ -96,18 +98,22 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">shutdown jupyter notebook from remote via ssh</h2>
-            <div class="post-date">2020-03-12</div>
+            <h2 class="post-title">添加conda env到jupyter lab/notebook</h2>
+            <div class="post-date">2020-04-01</div>
             
             <div class="post-content" v-pre>
-              <p>If you launch the notebook from a command prompt, you can shut it down by pressing Ctrl-C in that same command prompt. If not, you can run <code>jupyter notebook stop 8888</code>.</p>
+              <pre><code class="language-shell"> conda activate cenv
+(cenv)$ conda install ipykernel
+(cenv)$ ipython kernel install --user --name=&lt;any_name_for_kernel&gt;
+(cenv($ conda deactivate
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/jottings/" class="tag">
-                    jottings
+                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
+                    Python
                   </a>
                 
               </div>
@@ -115,9 +121,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/anaconda-xu-ni-huan-jing/">
+                <a href="https://ChenHaoHere.github.io/post/windows10-ci-tie/">
                   <h3 class="post-title">
-                    Anaconda虚拟环境
+                     windows10 磁贴
                   </h3>
                 </a>
               </div>
