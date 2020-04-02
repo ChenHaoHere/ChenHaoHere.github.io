@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-01T01:50:49.789Z</updated>
+    <updated>2020-04-02T00:54:04.449Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[存储单元换算]]></title>
+        <id>https://ChenHaoHere.github.io/post/cun-chu-dan-yuan-huan-suan/</id>
+        <link href="https://ChenHaoHere.github.io/post/cun-chu-dan-yuan-huan-suan/">
+        </link>
+        <updated>2020-04-02T00:53:33.000Z</updated>
+        <content type="html"><![CDATA[<p>计算机存储信息的最小单位，称之为位（bit，又称比特）<br>
+存储器中所包含存储单元的数量称为存储容量，其计量基本单位是字节（Byte。简称B），8个二进制位称为1个字节，此外还有KB、MB、GB、TB等，它们之间的换算关系是1Byte＝8bit，1KB=1024B，1MB=1024KB，1GB=1024MB，1TB=1024GB。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[添加conda env到jupyter lab/notebook]]></title>
         <id>https://ChenHaoHere.github.io/post/tian-jia-conda-env-dao-jupyter-labnotebook/</id>
@@ -164,15 +174,6 @@ int main(){
     return 0;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[shutdown jupyter notebook from remote via ssh]]></title>
-        <id>https://ChenHaoHere.github.io/post/shutdown-jupyter-notebook-from-remote-via-ssh/</id>
-        <link href="https://ChenHaoHere.github.io/post/shutdown-jupyter-notebook-from-remote-via-ssh/">
-        </link>
-        <updated>2020-03-11T23:57:39.000Z</updated>
-        <content type="html"><![CDATA[<p>If you launch the notebook from a command prompt, you can shut it down by pressing Ctrl-C in that same command prompt. If not, you can run <code>jupyter notebook stop 8888</code>.</p>
 ]]></content>
     </entry>
 </feed>
