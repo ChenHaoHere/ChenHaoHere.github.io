@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-02T00:54:04.449Z</updated>
+    <updated>2020-04-03T02:53:37.746Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[python获得北京时间时间戳并格式化输出]]></title>
+        <id>https://ChenHaoHere.github.io/post/python-huo-de-bei-jing-shi-jian-shi-jian-chuo-bing-ge-shi-hua-shu-chu/</id>
+        <link href="https://ChenHaoHere.github.io/post/python-huo-de-bei-jing-shi-jian-shi-jian-chuo-bing-ge-shi-hua-shu-chu/">
+        </link>
+        <updated>2020-04-03T02:51:53.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-python">import datetime
+
+timenow = (datetime.datetime.utcnow() + datetime.timedelta(hours=8)) #将utc时间转化为本地时间
+timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[存储单元换算]]></title>
         <id>https://ChenHaoHere.github.io/post/cun-chu-dan-yuan-huan-suan/</id>
@@ -119,60 +132,6 @@ print(a) # 实际上a是[[1], [1], [1], [1], [1], [1], [1], [1]]
 <p>验证也很好验证</p>
 <pre><code class="language-python">print(id(a[0])) # 140650110134408
 print(id(a[1])) # 140650110134408 显然内存是共享的
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[使用union实现位操作]]></title>
-        <id>https://ChenHaoHere.github.io/post/shi-yong-union-shi-xian-wei-cao-zuo/</id>
-        <link href="https://ChenHaoHere.github.io/post/shi-yong-union-shi-xian-wei-cao-zuo/">
-        </link>
-        <updated>2020-03-17T05:16:25.000Z</updated>
-        <content type="html"><![CDATA[<p>使用union实现位操作</p>
-<blockquote>
-<p>C语言关键字<strong>union</strong>使结构体里的变量共享一段内存</p>
-</blockquote>
-<p>eg:</p>
-<pre><code class="language-c">#include &lt;iostream&gt;
-
-using namespace std;
-
-typedef struct {
-    //也可以全部改用unsigned char, 会好看些
-    char bit0 : 1;
-    char bit1 : 1;
-    char bit2 : 1;
-    char bit3 : 1;
-    char bit4 : 1;
-    char bit5 : 1;
-    char bit6 : 1;
-    char bit7 : 1;
-}bits;
-typedef union {
-    char data_char;
-    bits data_bits;
-}utype;
-
-typedef struct {
-    int port;
-    utype LED;//这样就可以对8个LED单独控制
-}TEST;
-
-int main(){
-    TEST test;
-    test.port = 01;
-    test.LED.data_char = 0x00;//全灭
-    printf(&quot;%d\n&quot;, test.LED.data_bits.bit0);//0
-    printf(&quot;%d\n&quot;, test.LED.data_bits.bit1);//0
-    printf(&quot;%d\n&quot;, test.LED.data_bits);//0
-
-    test.LED.data_bits.bit1 = 1;//针对第一位操作, 点亮它
-    printf(&quot;%d\n&quot;, test.LED.data_bits.bit0);//0
-    printf(&quot;%d\n&quot;, test.LED.data_bits.bit1);//0
-    printf(&quot;%d\n&quot;, test.LED.data_bits);//2
-
-    return 0;
-}
 </code></pre>
 ]]></content>
     </entry>
