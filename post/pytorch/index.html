@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1585882414358">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1585904600695">
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
@@ -24,17 +24,18 @@
 
 
 
-    <meta name="description" content="
+    <meta name="description" content="pytorch
+
 
 numpy与torch之间相互转换
 pytorch中index_select()的用法
-
+实现early stop
+Parallel保存正常，读取报错
 
 
 
 numpy与torch之间相互转换
-np_arr = np.array([1,2,3,4])
-tor_arr = torch.from_nu..." />
+np_arr = np.ar..." />
     <meta name="keywords" content="Python" />
   </head>
   <body>
@@ -44,7 +45,7 @@ tor_arr = torch.from_nu..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://ChenHaoHere.github.io">
-        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1585882414358" class="site-logo">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1585904600695" class="site-logo">
         <h1 class="site-title">Blabla</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -110,11 +111,13 @@ tor_arr = torch.from_nu..." />
             <div class="post-date">2020-02-28</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
+              <h1 id="pytorch">pytorch</h1>
+<blockquote>
 <ol>
 <li><strong>numpy与torch之间相互转换</strong></li>
 <li><strong>pytorch中index_select()的用法</strong></li>
-<li></li>
+<li><strong>实现early stop</strong></li>
+<li><strong>Parallel保存正常，读取报错</strong></li>
 </ol>
 </blockquote>
 <hr>
@@ -147,6 +150,73 @@ tensor([[ 2.,  4.],
         [10., 12.]])
 </code></pre>
 <hr>
+<pre><code class="language-python">import numpy as np
+import torch
+
+class EarlyStopping:
+    &quot;&quot;&quot;Early stops the training if validation loss doesn't improve after a given patience.&quot;&quot;&quot;
+    def __init__(self, patience=7, verbose=False, delta=0):
+        &quot;&quot;&quot;
+        Args:
+            patience (int): How long to wait after last time validation loss improved.
+                            Default: 7
+            verbose (bool): If True, prints a message for each validation loss improvement. 
+                            Default: False
+            delta (float): Minimum change in the monitored quantity to qualify as an improvement.
+                            Default: 0
+        &quot;&quot;&quot;
+        self.patience = patience
+        self.verbose = verbose
+        self.counter = 0
+        self.best_score = None
+        self.early_stop = False
+        self.val_loss_min = np.Inf
+        self.delta = delta
+
+    def __call__(self, val_loss, model):
+
+        score = -val_loss
+
+        if self.best_score is None:
+            self.best_score = score
+            self.save_checkpoint(val_loss, model)
+        elif score &lt; self.best_score + self.delta:
+            self.counter += 1
+            print(f'EarlyStopping counter: {self.counter} out of {self.patience}')
+            if self.counter &gt;= self.patience:
+                self.early_stop = True
+        else:
+            self.best_score = score
+            self.save_checkpoint(val_loss, model)
+            self.counter = 0
+
+    def save_checkpoint(self, val_loss, model):
+        '''Saves model when validation loss decrease.'''
+        if self.verbose:
+            print(f'Validation loss decreased ({self.val_loss_min:.6f} --&gt; {val_loss:.6f}).  Saving model ...')
+        torch.save(model.state_dict(), 'checkpoint.pt')	# 这里会存储迄今最优模型的参数
+        self.val_loss_min = val_loss
+</code></pre>
+<p>在训练中使用</p>
+<pre><code class="language-python">earlystop = EarlyStopping(patience, verbose=True)#先实例化
+for epoch in range(epochs):
+    '''……………………'''
+	earlystop(val_loss, model)
+    if self.early_stopping.early_stop:
+        print(&quot;#Early stopped&quot;)
+        break
+</code></pre>
+<hr>
+<p>一般保存模型推荐方式是</p>
+<pre><code class="language-python">torch.save(model.state_dict(), path)
+
+#读取
+model = myModel()
+model.load_state_dict(torch.load(path))
+</code></pre>
+<p>但是因为Parallel是在多GPU上运行，还这么读取会报错说有些参数对不上，按下面的方式保存就能按正常方式读取了</p>
+<pre><code class="language-python">torch.save(model.module.state_dict(), path)
+</code></pre>
 
             </div>
             
