@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>存储单元换算 | Blabla</title>
+<title>tqdm与enumerate搭配没有进度条 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,9 +24,10 @@
 
 
 
-    <meta name="description" content="计算机存储信息的最小单位，称之为位（bit，又称比特）
-存储器中所包含存储单元的数量称为存储容量，其计量基本单位是字节（Byte。简称B），8个二进制位称为1个字节，此外还有KB、MB、GB、TB等，它们之间的换算关系是1Byte＝8bit..." />
-    <meta name="keywords" content="C/C++" />
+    <meta name="description" content="用pytorch训练模型时，torch.data.DataLoader生成载入数据集的类，在用enumerate能正常使用，但是套上tqdm就只有当前是第几个的输出，没有一个漂亮的进度条出来
+解决方法
+for batch_idx, batc..." />
+    <meta name="keywords" content="Python" />
   </head>
   <body>
     <div id="app" class="main">
@@ -97,19 +98,23 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">存储单元换算</h2>
-            <div class="post-date">2020-04-02</div>
+            <h2 class="post-title">tqdm与enumerate搭配没有进度条</h2>
+            <div class="post-date">2020-04-03</div>
             
             <div class="post-content" v-pre>
-              <p>计算机存储信息的最小单位，称之为位（bit，又称比特）<br>
-存储器中所包含存储单元的数量称为存储容量，其计量基本单位是字节（Byte。简称B），8个二进制位称为1个字节，此外还有KB、MB、GB、TB等，它们之间的换算关系是1Byte＝8bit，1KB=1024B，1MB=1024KB，1GB=1024MB，1TB=1024GB。</p>
+              <p>用pytorch训练模型时，torch.data.DataLoader生成载入数据集的类，在用enumerate能正常使用，但是套上tqdm就只有当前是第几个的输出，没有一个漂亮的进度条出来</p>
+<p><strong>解决方法</strong></p>
+<pre><code class="language-python">for batch_idx, batch in tqdm(enumerate(myDataLoader), total=len(myDataLoader)):
+    pass
+</code></pre>
+<p>因为在自定义数据集的时候，已经定义了--len--方法，所以这样就可以了</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/C/C++/" class="tag">
-                    C/C++
+                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
+                    Python
                   </a>
                 
               </div>
@@ -117,9 +122,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/tian-jia-conda-env-dao-jupyter-labnotebook/">
+                <a href="https://ChenHaoHere.github.io/post/python-huo-de-bei-jing-shi-jian-shi-jian-chuo-bing-ge-shi-hua-shu-chu/">
                   <h3 class="post-title">
-                    添加conda env到jupyter lab/notebook
+                    python获得北京时间时间戳并格式化输出
                   </h3>
                 </a>
               </div>

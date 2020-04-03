@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-03T09:03:23.305Z</updated>
+    <updated>2020-04-03T09:11:16.806Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[tqdm与enumerate搭配没有进度条]]></title>
+        <id>https://ChenHaoHere.github.io/post/tqdm-yu-enumerate-da-pei-mei-you-jin-du-tiao/</id>
+        <link href="https://ChenHaoHere.github.io/post/tqdm-yu-enumerate-da-pei-mei-you-jin-du-tiao/">
+        </link>
+        <updated>2020-04-03T09:11:01.000Z</updated>
+        <content type="html"><![CDATA[<p>用pytorch训练模型时，torch.data.DataLoader生成载入数据集的类，在用enumerate能正常使用，但是套上tqdm就只有当前是第几个的输出，没有一个漂亮的进度条出来</p>
+<p><strong>解决方法</strong></p>
+<pre><code class="language-python">for batch_idx, batch in tqdm(enumerate(myDataLoader), total=len(myDataLoader)):
+    pass
+</code></pre>
+<p>因为在自定义数据集的时候，已经定义了--len--方法，所以这样就可以了</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[python获得北京时间时间戳并格式化输出]]></title>
         <id>https://ChenHaoHere.github.io/post/python-huo-de-bei-jing-shi-jian-shi-jian-chuo-bing-ge-shi-hua-shu-chu/</id>
@@ -108,31 +122,6 @@ timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
         <updated>2020-03-24T23:55:16.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.hongkiat.com/blog/install-chrome-different-drive-windows-10/">https://www.hongkiat.com/blog/install-chrome-different-drive-windows-10/</a></p>
 <p><em>方法同样适用zoom</em></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[list [[]] * num 不能随便用]]></title>
-        <id>https://ChenHaoHere.github.io/post/list-num-bu-neng-sui-bian-yong/</id>
-        <link href="https://ChenHaoHere.github.io/post/list-num-bu-neng-sui-bian-yong/">
-        </link>
-        <updated>2020-03-23T04:57:00.000Z</updated>
-        <content type="html"><![CDATA[<h1 id=""></h1>
-<p>今天想要动态建一个列表, 很自然的想到</p>
-<pre><code class="language-python">scores = [[]] * num
-for i in range(nun):
-    scores[i].append(result)
-</code></pre>
-<p>结果得到的结果每个都一模一样, 才发现原来这样子出来的list里的list是<strong>共享内存</strong>的, 实验如下</p>
-<pre><code class="language-python">a = [[]] * 8
-print(a) # [[], [], [], [], [], [], [], []]
-
-a[0].append(1) # 期望中a是[[1], [], [], [], [], [], [], []]
-print(a) # 实际上a是[[1], [1], [1], [1], [1], [1], [1], [1]]
-</code></pre>
-<p>验证也很好验证</p>
-<pre><code class="language-python">print(id(a[0])) # 140650110134408
-print(id(a[1])) # 140650110134408 显然内存是共享的
-</code></pre>
 ]]></content>
     </entry>
 </feed>
