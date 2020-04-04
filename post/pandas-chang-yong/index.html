@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1585905074042">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586008807854">
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
@@ -24,13 +24,20 @@
 
 
 
-    <meta name="description" content="
-Series.var()#求方差
-Series.mean()#求均值
+    <meta name="description" content="pandas常用
 
-#创建一个准备填充Age列的 高斯分布的 Series
-##注意df.fillna()不能是numpy数组
-pd.Series(np.random.normal(df..." />
+
+Series相关
+DataFrame的一些
+apply, map, group一些很好用的操作
+DataFrame画图
+找出含有空值的行
+sheet读取/写入操作
+
+
+
+Series.var()#求方差
+Series...." />
     <meta name="keywords" content="Python" />
   </head>
   <body>
@@ -40,7 +47,7 @@ pd.Series(np.random.normal(df..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://ChenHaoHere.github.io">
-        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1585905074042" class="site-logo">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586008807854" class="site-logo">
         <h1 class="site-title">Blabla</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -106,7 +113,18 @@ pd.Series(np.random.normal(df..." />
             <div class="post-date">2020-02-28</div>
             
             <div class="post-content" v-pre>
-              <hr>
+              <h1 id="pandas常用">pandas常用</h1>
+<blockquote>
+<ol>
+<li>Series相关</li>
+<li>DataFrame的一些</li>
+<li>apply, map, group一些很好用的操作</li>
+<li>DataFrame画图</li>
+<li>找出含有空值的行</li>
+<li>sheet读取/写入操作</li>
+</ol>
+</blockquote>
+<hr>
 <pre><code class="language-python">Series.var()#求方差
 Series.mean()#求均值
 
@@ -135,6 +153,64 @@ df.select_dtypes(include='bool')#还能用exclude
 <h2 id="一文详解pandas中的map-apply-applymap-groupby-agg"><a href="https://mp.weixin.qq.com/s/mjDk9aog8wydNIGQKUHiBQ">一文详解pandas中的map、apply、applymap、groupby、agg...</a></h2>
 <p><strong>apply好用</strong></p>
 <hr>
+<p><strong>画图</strong></p>
+<p>df.plot(*x=None, y=None, kind='line', ax=None, subplots=False, sharex=None, sharey=False, layout=None, figsize=None, use_index=True, title=None, grid=None, legend=True, style=None, logx=False, logy=False, loglog=False, xticks=None, yticks=None, xlim=None, ylim=None, rot=None, fontsize=None, colormap=None, table=False, yerr=None, xerr=None, secondary_y=False, sort_columns=False, *<em>kwds</em>)</p>
+<ol>
+<li>对于一个DataFrame对象df，直接在一个ax中画出所有列的图---&gt;用df.plot();</li>
+<li>将不同的列画在不同的ax中---&gt;利用参数subplots和layout，即令subplots=True，然后再设置layout，传给其参数形式是一个元组，代表axes的布局，例如（3,2）表示3行2列的布局；如果不设置，则默认按一列的布局，还可以设置sharex=True，使其不同的subplot共享同一个x轴，可以节省画布空间，视觉效果也会更好；</li>
+<li>画多个子图，但是并不是每列分别占一个ax，而是一个子图（ax）中画多列---&gt;可以通过其中的ax参数，当然这时就需要用到matplotlib包，先创建特定布局的figure，然后再把这个figure中的axes对象传给参数ax，以画在这个特定的ax上，例如fig,axes=pmatplotlib.pyplot.subplots(3,2,figsize=(12,9))，这条语句创建了figure对象fig，还有ax对象组成的adarray--axes，然后通过例如df.plot(ax=axes[0,1])这样的语句把df的多列画在fig画布的第一行第二列的ax对象上。</li>
+</ol>
+<pre><code class="language-python">fig, axes = plt.subplots(2, 1, figsize=figsize)
+
+history[['loss', 'val_loss']].plot(subplots=True, ax=[axes[0], axes[0]], sharex=True)
+axes[0].set_ylim((history[['loss', 'val_loss']].values.min(), 
+                  history[['loss', 'val_loss']].values.max()))
+axes[0].grid()
+
+history[['acc', 'val_acc']].plot(subplots=True, ax=[axes[1], axes[1]], sharex=True)
+axes[1].set_ylim((history[['acc', 'val_acc']].values.min()-0.1, 
+                  history[['acc', 'val_acc']].values.max()+0.1))
+axes[1].grid()
+</code></pre>
+<hr>
+<h2 id="dataframedataframeisnulltany">DataFrame[DataFrame.isnull().T.any()]</h2>
+<p>非转置：frame3.isnull().any()，得到的每一列求any()计算的结果，输出为列的Series。</p>
+<p>转置：frame3.isnull().T.any()，得到的每一行求any()计算的结果，输出为行的Series。</p>
+<hr>
+<h3 id="读取">读取</h3>
+<pre><code class="language-python">#sheet_name:None代表读取所有的sheet，返回的就是一个ordereddict；指定就只读取指定sheet，只有一个返回的就是dataframe
+
+# 整型数字：目标sheet所在位置，以0开始，比如sheet_name = 0代表第1个工作表
+data = pd.read_excel(path, sheet_name = 1)
+
+# 工作表名：目标sheet的名称，可用中英文
+data = pd.read_excel(path, sheet_name = 'the sheet')
+
+# SheetN：表示第N个sheet，S必须大写，注意与整型数字的区别使用
+data = pd.read_excel(path, sheet_name = 'Sheet5')
+
+# sheet_name 默认为0，取Excel第一个工作表。如果读取多个工作表，则显示表格的字典
+data = pd.read_excel(path, sheet_name = [1, 'the sheet', 'Sheet3'], nrows = 5)
+</code></pre>
+<p>所有sheet的name可以这么获得</p>
+<pre><code class="language-python">sheet_names = pd.ExcelFile('./data/meal_order_detail.xlsx').sheet_names
+</code></pre>
+<h3 id="写入">写入</h3>
+<pre><code class="language-python">#利用Pandas包中的ExcelWriter()方法增加一个公共句柄，在写入新的数据之时保留原来写入的数据，等到把所有的数据都写进去之后关闭这个句柄
+
+writer = pd.ExcelWriter('example.xlsx')
+A = np.array([[1,2,3],[4,5,6]])
+B = np.array([[10, 20, 30], [40, 50, 60]])
+
+df1 = pd.DataFrame(A)
+df2 = pd.DataFrame(B)
+df1.to_excel(writer,sheet_name='AAA')
+df2.to_excel(writer,sheet_name='BBB')
+writer.save()
+writer.close()
+</code></pre>
+<hr>
+<h3 id=""></h3>
 
             </div>
             
