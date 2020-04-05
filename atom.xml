@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-04T14:03:18.959Z</updated>
+    <updated>2020-04-05T02:14:05.208Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,18 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[range逆序]]></title>
+        <id>https://ChenHaoHere.github.io/post/range-ni-xu/</id>
+        <link href="https://ChenHaoHere.github.io/post/range-ni-xu/">
+        </link>
+        <updated>2020-04-05T02:12:42.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-python">#本意是想得到2，1，0
+print(list(range(3, 0, -1))) #得到[2,, 1]
+</code></pre>
+<p>纪念一下自己的愚蠢</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[tqdm与enumerate搭配没有进度条]]></title>
         <id>https://ChenHaoHere.github.io/post/tqdm-yu-enumerate-da-pei-mei-you-jin-du-tiao/</id>
@@ -112,16 +124,6 @@ timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
         </link>
         <updated>2020-03-25T13:26:23.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/qq_38698753/article/details/93190356">https://blog.csdn.net/qq_38698753/article/details/93190356</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[chrome安装在别的盘]]></title>
-        <id>https://ChenHaoHere.github.io/post/chrome-an-zhuang-zai-bie-de-pan/</id>
-        <link href="https://ChenHaoHere.github.io/post/chrome-an-zhuang-zai-bie-de-pan/">
-        </link>
-        <updated>2020-03-24T23:55:16.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.hongkiat.com/blog/install-chrome-different-drive-windows-10/">https://www.hongkiat.com/blog/install-chrome-different-drive-windows-10/</a></p>
-<p><em>方法同样适用zoom</em></p>
 ]]></content>
     </entry>
 </feed>
