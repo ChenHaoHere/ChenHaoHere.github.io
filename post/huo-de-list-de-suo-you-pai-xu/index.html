@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>划分数据集 | Blabla</title>
+<title>获得list的所有排序 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,10 +24,14 @@
 
 
 
-    <meta name="description" content="老是忘，放着随时取用
-train_test_split(df,test_size=0.2, random_state=0)
+    <meta name="description" content="
+心血来潮想到这个东西，感觉不是很难，就着手实现了一下
+但发现不是那么简单（不是计算机系真的心累
 
-" />
+def all(s,ss=None):
+    ss = [s]
+    if len(s) == 2:
+        ss.append..." />
     <meta name="keywords" content="Python" />
   </head>
   <body>
@@ -99,12 +103,29 @@ train_test_split(df,test_size=0.2, random_state=0)
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">划分数据集</h2>
-            <div class="post-date">2020-03-30</div>
+            <h2 class="post-title">获得list的所有排序</h2>
+            <div class="post-date">2020-04-05</div>
             
             <div class="post-content" v-pre>
-              <p>老是忘，放着随时取用</p>
-<pre><code class="language-python">train_test_split(df,test_size=0.2, random_state=0)
+              <blockquote>
+<p>心血来潮想到这个东西，感觉不是很难，就着手实现了一下<br>
+但发现不是那么简单（不是计算机系真的心累</p>
+</blockquote>
+<pre><code class="language-python">def all(s,ss=None):
+    ss = [s]
+    if len(s) == 2:
+        ss.append(s[::-1])
+        return ss
+    else:
+        for i in range((len(s)-1), -1, -1):
+            item = s[i]
+            temp = list(map(lambda x:x+[item], all(s[:i] + s[i+1:])))
+            ss.extend(temp)
+        return ss[1:]
+
+s = [1, 2, 3, 4]
+ss = all(s)
+print(ss)
 </code></pre>
 
             </div>
@@ -120,9 +141,9 @@ train_test_split(df,test_size=0.2, random_state=0)
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/vs-code-yapf-zheng-li-dai-ma/">
+                <a href="https://ChenHaoHere.github.io/post/range-ni-xu/">
                   <h3 class="post-title">
-                    VS code yapf整理代码
+                    range逆序
                   </h3>
                 </a>
               </div>
