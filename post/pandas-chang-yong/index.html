@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586053051776">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586135726831">
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
@@ -33,10 +33,11 @@ apply, map, group一些很好用的操作
 DataFrame画图
 找出含有空值的行
 sheet读取/写入操作
+追加写入
 
 
 
-Series.var()#求方差
+1. Series相关
 Series...." />
     <meta name="keywords" content="Python" />
   </head>
@@ -47,7 +48,7 @@ Series...." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://ChenHaoHere.github.io">
-        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586053051776" class="site-logo">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586135726831" class="site-logo">
         <h1 class="site-title">Blabla</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -122,9 +123,11 @@ Series...." />
 <li>DataFrame画图</li>
 <li>找出含有空值的行</li>
 <li>sheet读取/写入操作</li>
+<li>追加写入</li>
 </ol>
 </blockquote>
 <hr>
+<h2 id="1-series相关">1. Series相关</h2>
 <pre><code class="language-python">Series.var()#求方差
 Series.mean()#求均值
 
@@ -133,6 +136,7 @@ Series.mean()#求均值
 pd.Series(np.random.normal(df.loc[:, 'Age'].var(), df.loc[:, 'Age'].mean(), df.loc[:, 'Age'].isnull().sum()), index=df[df.loc[:, &quot;Age&quot;].isnull()].index)
 </code></pre>
 <hr>
+<h2 id="2dataframe的一些">2.DataFrame的一些</h2>
 <pre><code class="language-python">df['Embarked'].fillna(df['Embarked'].value_counts().idxmax())#众数填充
 
 df.mode()#获得众数
@@ -150,9 +154,11 @@ df.drop(['Name', 'Ticket', 'Cabin'], axis=1, inplace=True)#inplace
 df.select_dtypes(include='bool')#还能用exclude
 </code></pre>
 <hr>
+<h2 id="3-apply-map-group一些很好用的操作">3. apply, map, group一些很好用的操作</h2>
 <h2 id="一文详解pandas中的map-apply-applymap-groupby-agg"><a href="https://mp.weixin.qq.com/s/mjDk9aog8wydNIGQKUHiBQ">一文详解pandas中的map、apply、applymap、groupby、agg...</a></h2>
 <p><strong>apply好用</strong></p>
 <hr>
+<h2 id="4-dataframe画图">4. DataFrame画图</h2>
 <p><strong>画图</strong></p>
 <p>df.plot(*x=None, y=None, kind='line', ax=None, subplots=False, sharex=None, sharey=False, layout=None, figsize=None, use_index=True, title=None, grid=None, legend=True, style=None, logx=False, logy=False, loglog=False, xticks=None, yticks=None, xlim=None, ylim=None, rot=None, fontsize=None, colormap=None, table=False, yerr=None, xerr=None, secondary_y=False, sort_columns=False, *<em>kwds</em>)</p>
 <ol>
@@ -173,10 +179,12 @@ axes[1].set_ylim((history[['acc', 'val_acc']].values.min()-0.1,
 axes[1].grid()
 </code></pre>
 <hr>
+<h2 id="5-找出含有空值的行">5. 找出含有空值的行</h2>
 <h2 id="dataframedataframeisnulltany">DataFrame[DataFrame.isnull().T.any()]</h2>
 <p>非转置：frame3.isnull().any()，得到的每一列求any()计算的结果，输出为列的Series。</p>
 <p>转置：frame3.isnull().T.any()，得到的每一行求any()计算的结果，输出为行的Series。</p>
 <hr>
+<h2 id="6-sheet读取写入操作">6. sheet读取/写入操作</h2>
 <h3 id="读取">读取</h3>
 <pre><code class="language-python">#sheet_name:None代表读取所有的sheet，返回的就是一个ordereddict；指定就只读取指定sheet，只有一个返回的就是dataframe
 
@@ -210,7 +218,17 @@ writer.save()
 writer.close()
 </code></pre>
 <hr>
-<h3 id=""></h3>
+<h3 id="7-追加写入">7. 追加写入</h3>
+<p><strong>方法一</strong></p>
+<p>行列都可</p>
+<pre><code class="language-python">writer = pd.ExcelWriter(filepath)
+df.to_excel(excel_writer=writer,startcol=9)
+df1.to_excel(excel_writer=writer,startrow=8)
+</code></pre>
+<p><strong>方法二</strong></p>
+<p>只有列方向</p>
+<pre><code class="language-python">df.to_csv(file_name, mode='a')
+</code></pre>
 
             </div>
             
