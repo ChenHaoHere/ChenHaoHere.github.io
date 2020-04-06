@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>添加conda env到jupyter lab/notebook | Blabla</title>
+<title>tensorflow/core/framework/tensor_shape.cc:353] Check failed: 0 &lt;= new_num_elements (0 vs. -5140274727941846278) | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,10 +24,11 @@
 
 
 
-    <meta name="description" content=" conda activate cenv
-(cenv)$ conda install ipykernel
-(cenv)$ ipython kernel install --user --name=&lt;any_name_for_kerne..." />
-    <meta name="keywords" content="Python" />
+    <meta name="description" content="
+用tf.data.Dataset.from_tensor_slices建数据集的时候，出现这个错误，然后jupyter 就restart kernel了...
+
+d_loader = tf.data.Dataset.from_tensor..." />
+    <meta name="keywords" content="tensorflow" />
   </head>
   <body>
     <div id="app" class="main">
@@ -98,22 +99,26 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">添加conda env到jupyter lab/notebook</h2>
-            <div class="post-date">2020-04-01</div>
+            <h2 class="post-title">tensorflow/core/framework/tensor_shape.cc:353] Check failed: 0 &lt;= new_num_elements (0 vs. -5140274727941846278)</h2>
+            <div class="post-date">2020-04-06</div>
             
             <div class="post-content" v-pre>
-              <pre><code class="language-shell"> conda activate cenv
-(cenv)$ conda install ipykernel
-(cenv)$ ipython kernel install --user --name=&lt;any_name_for_kernel&gt;
-(cenv($ conda deactivate
+              <blockquote>
+<p>用tf.data.Dataset.from_tensor_slices建数据集的时候，出现这个错误，然后jupyter 就restart kernel了...</p>
+</blockquote>
+<pre><code class="language-python">d_loader = tf.data.Dataset.from_tensor_slices((df.loc[:, [&quot;电流(A)&quot;, '电压(V)']].to_dict('list'), df.loc[:, '容量(Ah)']))
+</code></pre>
+<p>google出来也有不少人有这问题，<a href="https://github.com/tensorflow/tensorflow/issues/36266">tf的issue里</a>底下评论的说work的方法我都试了，但都<strong>不行</strong>（气死我了）<br>
+最后还是屈服了，曲线救国，不用dataframe了</p>
+<pre><code class="language-python">d_loader = tf.data.Dataset.from_tensor_slices((df.loc[:, [&quot;电流(A)&quot;, '电压(V)']].values, df.loc[:, '容量(Ah)'].values))
 </code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
-                    Python
+                  <a href="https://ChenHaoHere.github.io/tag/_BOUgb_y_/" class="tag">
+                    tensorflow
                   </a>
                 
               </div>
@@ -121,9 +126,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/windows10-ci-tie/">
+                <a href="https://ChenHaoHere.github.io/post/huo-de-list-de-suo-you-pai-xu/">
                   <h3 class="post-title">
-                     windows10 磁贴
+                    获得list的所有排序
                   </h3>
                 </a>
               </div>

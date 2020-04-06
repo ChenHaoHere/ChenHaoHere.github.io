@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-06T05:52:27.224Z</updated>
+    <updated>2020-04-06T06:40:21.553Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,23 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[tensorflow/core/framework/tensor_shape.cc:353] Check failed: 0 <= new_num_elements (0 vs. -5140274727941846278)]]></title>
+        <id>https://ChenHaoHere.github.io/post/tensorflowithcoreframeworktensor_shapecc353-check-failed-0-less-new_num_elements-0-vs-5140274727941846278/</id>
+        <link href="https://ChenHaoHere.github.io/post/tensorflowithcoreframeworktensor_shapecc353-check-failed-0-less-new_num_elements-0-vs-5140274727941846278/">
+        </link>
+        <updated>2020-04-06T06:35:02.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>用tf.data.Dataset.from_tensor_slices建数据集的时候，出现这个错误，然后jupyter 就restart kernel了...</p>
+</blockquote>
+<pre><code class="language-python">d_loader = tf.data.Dataset.from_tensor_slices((df.loc[:, [&quot;电流(A)&quot;, '电压(V)']].to_dict('list'), df.loc[:, '容量(Ah)']))
+</code></pre>
+<p>google出来也有不少人有这问题，<a href="https://github.com/tensorflow/tensorflow/issues/36266">tf的issue里</a>底下评论的说work的方法我都试了，但都<strong>不行</strong>（气死我了）<br>
+最后还是屈服了，曲线救国，不用dataframe了</p>
+<pre><code class="language-python">d_loader = tf.data.Dataset.from_tensor_slices((df.loc[:, [&quot;电流(A)&quot;, '电压(V)']].values, df.loc[:, '容量(Ah)'].values))
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[获得list的所有排序]]></title>
         <id>https://ChenHaoHere.github.io/post/huo-de-list-de-suo-you-pai-xu/</id>
@@ -134,15 +151,6 @@ timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
         <updated>2020-03-27T04:50:23.000Z</updated>
         <content type="html"><![CDATA[<p>&quot;python.formatting.provider&quot;: &quot;yapf&quot;</p>
 <p>然后<strong>Alt+Shift+F</strong>就可以自动格式化代码</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[.whl 下载]]></title>
-        <id>https://ChenHaoHere.github.io/post/whl-xia-zai/</id>
-        <link href="https://ChenHaoHere.github.io/post/whl-xia-zai/">
-        </link>
-        <updated>2020-03-26T00:37:40.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://pypi.org/">https://pypi.org/</a></p>
 ]]></content>
     </entry>
 </feed>
