@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586136981569">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586152342911">
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
@@ -24,11 +24,12 @@
 
 
 
-    <meta name="description" content="
+    <meta name="description" content="pandas常用
+
 
 [Series相关](## 1. Series相关)
 [DataFrame的一些](## 2. DataFrame的一些)
-[apply, map, group一些很好用的操作](## 3. apply, map, group一些很好用..." />
+[apply, map, group一些很好用的操作](## 3. apply, map, g..." />
     <meta name="keywords" content="Python" />
   </head>
   <body>
@@ -38,7 +39,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://ChenHaoHere.github.io">
-        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586136981569" class="site-logo">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586152342911" class="site-logo">
         <h1 class="site-title">Blabla</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -104,7 +105,8 @@
             <div class="post-date">2020-02-28</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
+              <h1 id="pandas常用">pandas常用</h1>
+<blockquote>
 <ol>
 <li>[Series相关](## 1. Series相关)</li>
 <li>[DataFrame的一些](## 2. DataFrame的一些)</li>
@@ -113,6 +115,7 @@
 <li>[找出含有空值的行](## 5. 找出含有空值的行)</li>
 <li>[sheet读取/写入操作](## 6. sheet读取/写入操作)</li>
 <li>[追加写入](## 7. 追加写入)</li>
+<li>[read_csv所有参数解释](## 8. read_csv主要参数解释(用到了就更新))</li>
 </ol>
 </blockquote>
 <hr>
@@ -219,6 +222,16 @@ df1.to_excel(excel_writer=writer,startrow=8)
 <pre><code class="language-python">df.to_csv(file_name, mode='a')
 </code></pre>
 <hr>
+<h2 id="8-read_csv主要参数解释用到了就更新">8. read_csv主要参数解释(用到了就更新)</h2>
+<p><em><strong>pandas.read_csv(filepath_or_buffer: Union[str, pathlib.Path, IO[~AnyStr]], sep=',', delimiter=None, header='infer', names=None, index_col=None, usecols=None, squeeze=False, prefix=None, mangle_dupe_cols=True, dtype=None, engine=None, converters=None, true_values=None, false_values=None, skipinitialspace=False, skiprows=None, skipfooter=0, nrows=None, na_values=None, keep_default_na=True, na_filter=True, verbose=False, skip_blank_lines=True, parse_dates=False, infer_datetime_format=False, keep_date_col=False, date_parser=None, dayfirst=False, cache_dates=True, iterator=False, chunksize=None, compression='infer', thousands=None, decimal: str = '.', lineterminator=None, quotechar='&quot;', quoting=0, doublequote=True, escapechar=None, comment=None, encoding=None, dialect=None, error_bad_lines=True, warn_bad_lines=True, delim_whitespace=False, low_memory=True, memory_map=False, float_precision=None)</strong></em></p>
+<p><strong>参数解释</strong>(ps:<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">官方文档</a></p>
+<p><strong>filepath_or_buffer :</strong> 路径 URL 可以是http, ftp, s3, 和 file</p>
+<p><strong>sep:</strong> 指定分割符，默认是’,’C引擎不能自动检测分隔符，但Python解析引擎可以</p>
+<p><strong>header:</strong> 指定第几行作为列名(忽略注解行)，如果没有指定列名，默认header=0; 如果指定了列名header=None</p>
+<p><strong>index_col:</strong> 默认为None 用列名作为DataFrame的行标签，如果给出序列，则使用MultiIndex。如果读取某文件,该文件每行末尾都有带分隔符，考虑使用index_col=False使panadas不用第一列作为行的名称。</p>
+<p><strong>dtype:</strong> E.g. {‘a’: np.float64, ‘b’: np.int32} 指定数据类型</p>
+<p><strong>encoding:</strong> 编码方式</p>
+<p><strong>engine</strong>:{‘c’, ‘python’}, optional c更快，python更灵活</p>
 
             </div>
             
