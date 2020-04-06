@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586135726831">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586136967106">
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
@@ -24,21 +24,11 @@
 
 
 
-    <meta name="description" content="pandas常用
+    <meta name="description" content="
 
-
-Series相关
-DataFrame的一些
-apply, map, group一些很好用的操作
-DataFrame画图
-找出含有空值的行
-sheet读取/写入操作
-追加写入
-
-
-
-1. Series相关
-Series...." />
+[Series相关](## 1. Series相关)
+[DataFrame的一些](## 2. DataFrame的一些)
+[apply, map, group一些很好用的操作](## 3. apply, map, group一些很好用..." />
     <meta name="keywords" content="Python" />
   </head>
   <body>
@@ -48,7 +38,7 @@ Series...." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://ChenHaoHere.github.io">
-        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586135726831" class="site-logo">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586136967106" class="site-logo">
         <h1 class="site-title">Blabla</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -114,16 +104,15 @@ Series...." />
             <div class="post-date">2020-02-28</div>
             
             <div class="post-content" v-pre>
-              <h1 id="pandas常用">pandas常用</h1>
-<blockquote>
+              <blockquote>
 <ol>
-<li>Series相关</li>
-<li>DataFrame的一些</li>
-<li>apply, map, group一些很好用的操作</li>
-<li>DataFrame画图</li>
-<li>找出含有空值的行</li>
-<li>sheet读取/写入操作</li>
-<li>追加写入</li>
+<li>[Series相关](## 1. Series相关)</li>
+<li>[DataFrame的一些](## 2. DataFrame的一些)</li>
+<li>[apply, map, group一些很好用的操作](## 3. apply, map, group一些很好用的操作)</li>
+<li>[DataFrame画图](## 4. DataFrame画图)</li>
+<li>[找出含有空值的行](## 5. 找出含有空值的行)</li>
+<li>[sheet读取/写入操作](## 6. sheet读取/写入操作)</li>
+<li>[追加写入](## 7. 追加写入)</li>
 </ol>
 </blockquote>
 <hr>
@@ -180,7 +169,7 @@ axes[1].grid()
 </code></pre>
 <hr>
 <h2 id="5-找出含有空值的行">5. 找出含有空值的行</h2>
-<h2 id="dataframedataframeisnulltany">DataFrame[DataFrame.isnull().T.any()]</h2>
+<p>** DataFrame[DataFrame.isnull().T.any()]**</p>
 <p>非转置：frame3.isnull().any()，得到的每一列求any()计算的结果，输出为列的Series。</p>
 <p>转置：frame3.isnull().T.any()，得到的每一行求any()计算的结果，输出为行的Series。</p>
 <hr>
@@ -218,7 +207,7 @@ writer.save()
 writer.close()
 </code></pre>
 <hr>
-<h3 id="7-追加写入">7. 追加写入</h3>
+<h2 id="7-追加写入">7. 追加写入</h2>
 <p><strong>方法一</strong></p>
 <p>行列都可</p>
 <pre><code class="language-python">writer = pd.ExcelWriter(filepath)
@@ -229,6 +218,7 @@ df1.to_excel(excel_writer=writer,startrow=8)
 <p>只有列方向</p>
 <pre><code class="language-python">df.to_csv(file_name, mode='a')
 </code></pre>
+<hr>
 
             </div>
             
