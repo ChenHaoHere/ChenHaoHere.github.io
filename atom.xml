@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-07T02:28:53.510Z</updated>
+    <updated>2020-04-07T02:30:37.801Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -136,7 +136,7 @@ timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
         </link>
         <updated>2020-04-02T00:53:33.000Z</updated>
         <content type="html"><![CDATA[<p>计算机存储信息的最小单位，称之为位（bit，又称比特）<br>
-存储器中所包含存储单元的数量称为存储容量，其计量基本单位是字节（Byte。简称B），8个二进制位称为1个字节，此外还有KB、MB、GB、TB等，它们之间的换算关系是1Byte＝8bit，1KB=1024B，1MB=1024KB，1GB=1024MB，1TB=1024GB。</p>
+存储器中所包含存储单元的数量称为存储容量，其计量基本单位是字节（Byte。简称B），8个二进制位称为1个字节，此外还有KB、MB、GB、TB等，它们之间的换算关系是1Byte＝8bit，1KB=1024Byte，1MB=1024KB，1GB=1024MB，1TB=1024GB。</p>
 ]]></content>
     </entry>
     <entry>
