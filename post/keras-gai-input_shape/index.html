@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>python获得北京时间时间戳并格式化输出 | Blabla</title>
+<title>keras改input_shape | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,11 +24,10 @@
 
 
 
-    <meta name="description" content="import datetime
-
-timenow = (datetime.datetime.utcnow() + datetime.timedelta(hours=8)) #将utc时间转化为本地时间
-timetext = timenow...." />
-    <meta name="keywords" content="Python" />
+    <meta name="description" content="keras的model通常使用的时候是不需要特意把input_shape设置明白的，但今天用tf-lite部署到MCU上的时候，报错
+None is only supported in the 1st dimension.……………………
+..." />
+    <meta name="keywords" content="tensorflow" />
   </head>
   <body>
     <div id="app" class="main">
@@ -99,22 +98,31 @@ timetext = timenow...." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">python获得北京时间时间戳并格式化输出</h2>
-            <div class="post-date">2020-04-03</div>
+            <h2 class="post-title">keras改input_shape</h2>
+            <div class="post-date">2020-04-07</div>
             
             <div class="post-content" v-pre>
-              <pre><code class="language-python">import datetime
+              <p><strong>keras的model通常使用的时候是不需要特意把input_shape设置明白的，但今天用tf-lite部署到MCU上的时候，报错</strong></p>
+<p><color:red>None is only supported in the 1st dimension.……………………<\p>
+就是说只有1st dimentio(也就是batch_size)可以为None
+<p>那就改呗<br>
+结果model.input_size = (None, 128, 2)会报错说不给改。。<br>
+然后google了一个解决方案，如下</p>
+<pre><code class="language-python">from tensorflow.keras.layers import Input
+from tensorflow.keras.models import Model
 
-timenow = (datetime.datetime.utcnow() + datetime.timedelta(hours=8)) #将utc时间转化为本地时间
-timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
+newInput = Input(shape=(128,2))
+newOutputs = model(newInput)
+newModel = Model(newInput,newOutputs)
+newModel.set_weights(model.get_weights()) #可一定注意把weights换咯
 </code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
-                    Python
+                  <a href="https://ChenHaoHere.github.io/tag/_BOUgb_y_/" class="tag">
+                    tensorflow
                   </a>
                 
               </div>
@@ -122,9 +130,9 @@ timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/cun-chu-dan-yuan-huan-suan/">
+                <a href="https://ChenHaoHere.github.io/post/dataframe-wu-fa-fu-zhi-de-yi-ge-da-da-da-da-da-da-keng/">
                   <h3 class="post-title">
-                    存储单元换算
+                    dataframe无法赋值的一个大大大大大大坑
                   </h3>
                 </a>
               </div>
