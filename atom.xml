@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-11T01:33:16.134Z</updated>
+    <updated>2020-04-13T01:35:00.947Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,18 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[Win的ubuntu子系统调用本机磁盘文件]]></title>
+        <id>https://ChenHaoHere.github.io/post/win-de-ubuntu-zi-xi-tong-diao-yong-ben-ji-ci-pan-wen-jian/</id>
+        <link href="https://ChenHaoHere.github.io/post/win-de-ubuntu-zi-xi-tong-diao-yong-ben-ji-ci-pan-wen-jian/">
+        </link>
+        <updated>2020-04-13T01:32:03.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>所有的Windows文件都被挂载到 Linux的 /mnt/ 下面的盘符 ，如C盘对应的是 /mnt/c 。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/ChenHaoHere/PicGo/master/20200413093404.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[keras改input_shape]]></title>
         <id>https://ChenHaoHere.github.io/post/keras-gai-input_shape/</id>
@@ -172,21 +184,6 @@ timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
 (cenv)$ ipython kernel install --user --name=&lt;any_name_for_kernel&gt;
 (cenv($ conda deactivate
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ windows10 磁贴]]></title>
-        <id>https://ChenHaoHere.github.io/post/windows10-ci-tie/</id>
-        <link href="https://ChenHaoHere.github.io/post/windows10-ci-tie/">
-        </link>
-        <updated>2020-03-31T07:27:39.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<blockquote>
-<p>辛苦了大半个下午，终于把自己的win10变好看了</p>
-<p>主要是在磁贴上花了大功夫</p>
-<p>最后桌面是空的了，常用的在任务栏和开始菜单</p>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/ChenHaoHere/PicGo/master/image-20200331152709598.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
