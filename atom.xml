@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-13T01:35:00.947Z</updated>
+    <updated>2020-04-15T02:33:07.732Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[码云 clone 时认证失败]]></title>
+        <id>https://ChenHaoHere.github.io/post/ma-yun-clone-shi-ren-zheng-shi-bai/</id>
+        <link href="https://ChenHaoHere.github.io/post/ma-yun-clone-shi-ren-zheng-shi-bai/">
+        </link>
+        <updated>2020-04-15T02:10:48.000Z</updated>
+        <content type="html"><![CDATA[<p>直接从github git clone一些大项目的时候太太太太太慢了，国内有一个叫码云的代码托管网站，<strong>速度贼快</strong><br>
+但是第一次git clone的时候用户名/密码验证失败了<br>
+才发现这个网站自己设置的用户名是不能用来验证的（不知道为啥要有这个），clone的时候username改成自己注册时的邮箱账号就行了</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Win的ubuntu子系统调用本机磁盘文件]]></title>
         <id>https://ChenHaoHere.github.io/post/win-de-ubuntu-zi-xi-tong-diao-yong-ben-ji-ci-pan-wen-jian/</id>
@@ -171,19 +182,6 @@ timetext = timenow.strftime('%Y-%m-%d %H:%M:%S')
         <updated>2020-04-02T00:53:33.000Z</updated>
         <content type="html"><![CDATA[<p>计算机存储信息的最小单位，称之为位（bit，又称比特）<br>
 存储器中所包含存储单元的数量称为存储容量，其计量基本单位是字节（Byte。简称B），8个二进制位称为1个字节，此外还有KB、MB、GB、TB等，它们之间的换算关系是1Byte＝8bit，1KB=1024Byte，1MB=1024KB，1GB=1024MB，1TB=1024GB。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[添加conda env到jupyter lab/notebook]]></title>
-        <id>https://ChenHaoHere.github.io/post/tian-jia-conda-env-dao-jupyter-labnotebook/</id>
-        <link href="https://ChenHaoHere.github.io/post/tian-jia-conda-env-dao-jupyter-labnotebook/">
-        </link>
-        <updated>2020-04-01T01:49:54.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-shell"> conda activate cenv
-(cenv)$ conda install ipykernel
-(cenv)$ ipython kernel install --user --name=&lt;any_name_for_kernel&gt;
-(cenv($ conda deactivate
-</code></pre>
 ]]></content>
     </entry>
 </feed>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>tensorflow/core/framework/tensor_shape.cc:353] Check failed: 0 &lt;= new_num_elements (0 vs. -5140274727941846278) | Blabla</title>
+<title>码云 clone 时认证失败 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,11 +24,10 @@
 
 
 
-    <meta name="description" content="
-用tf.data.Dataset.from_tensor_slices建数据集的时候，出现这个错误，然后jupyter 就restart kernel了...
-
-d_loader = tf.data.Dataset.from_tensor..." />
-    <meta name="keywords" content="tensorflow" />
+    <meta name="description" content="直接从github git clone一些大项目的时候太太太太太慢了，国内有一个叫码云的代码托管网站，速度贼快
+但是第一次git clone的时候用户名/密码验证失败了
+才发现这个网站自己设置的用户名是不能用来验证的（不知道为啥要有这个），..." />
+    <meta name="keywords" content="jottings" />
   </head>
   <body>
     <div id="app" class="main">
@@ -99,26 +98,20 @@ d_loader = tf.data.Dataset.from_tensor..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">tensorflow/core/framework/tensor_shape.cc:353] Check failed: 0 &lt;= new_num_elements (0 vs. -5140274727941846278)</h2>
-            <div class="post-date">2020-04-06</div>
+            <h2 class="post-title">码云 clone 时认证失败</h2>
+            <div class="post-date">2020-04-15</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>用tf.data.Dataset.from_tensor_slices建数据集的时候，出现这个错误，然后jupyter 就restart kernel了...</p>
-</blockquote>
-<pre><code class="language-python">d_loader = tf.data.Dataset.from_tensor_slices((df.loc[:, [&quot;电流(A)&quot;, '电压(V)']].to_dict('list'), df.loc[:, '容量(Ah)']))
-</code></pre>
-<p>google出来也有不少人有这问题，<a href="https://github.com/tensorflow/tensorflow/issues/36266">tf的issue里</a>底下评论的说work的方法我都试了，但都<strong>不行</strong>（气死我了）<br>
-最后还是屈服了，曲线救国，不用dataframe了</p>
-<pre><code class="language-python">d_loader = tf.data.Dataset.from_tensor_slices((df.loc[:, [&quot;电流(A)&quot;, '电压(V)']].values, df.loc[:, '容量(Ah)'].values))
-</code></pre>
+              <p>直接从github git clone一些大项目的时候太太太太太慢了，国内有一个叫码云的代码托管网站，<strong>速度贼快</strong><br>
+但是第一次git clone的时候用户名/密码验证失败了<br>
+才发现这个网站自己设置的用户名是不能用来验证的（不知道为啥要有这个），clone的时候username改成自己注册时的邮箱账号就行了</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/_BOUgb_y_/" class="tag">
-                    tensorflow
+                  <a href="https://ChenHaoHere.github.io/tag/jottings/" class="tag">
+                    jottings
                   </a>
                 
               </div>
@@ -126,9 +119,9 @@ d_loader = tf.data.Dataset.from_tensor..." />
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/huo-de-list-de-suo-you-pai-xu/">
+                <a href="https://ChenHaoHere.github.io/post/win-de-ubuntu-zi-xi-tong-diao-yong-ben-ji-ci-pan-wen-jian/">
                   <h3 class="post-title">
-                    获得list的所有排序
+                    Win的ubuntu子系统调用本机磁盘文件
                   </h3>
                 </a>
               </div>
