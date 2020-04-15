@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586929749546">
+<link rel="shortcut icon" href="https://ChenHaoHere.github.io/favicon.ico?v=1586929974555">
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
@@ -32,12 +32,12 @@ anaconda python环境变量配置
 cp操作
 win10 ubuntu 调出目录
 Linux删除指定文件夹及其子文件夹下的指定文件
-[安装.sh文件](# 安装.sh文件)
+安装.sh, .deb文件
 
 
 
 环境变量配置
-$ ..." />
+$ echo 'e..." />
     <meta name="keywords" content="Linux" />
   </head>
   <body>
@@ -47,7 +47,7 @@ $ ..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://ChenHaoHere.github.io">
-        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586929749546" class="site-logo">
+        <img src="https://ChenHaoHere.github.io/images/avatar.png?v=1586929974555" class="site-logo">
         <h1 class="site-title">Blabla</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -121,7 +121,7 @@ $ ..." />
 <li><a href="#cp%E6%93%8D%E4%BD%9C">cp操作</a></li>
 <li><a href="#win10-ubuntu-%E8%B0%83%E5%87%BA%E7%9B%AE%E5%BD%95">win10 ubuntu 调出目录</a></li>
 <li><a href="#Linux%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8F%8A%E5%85%B6%E5%AD%90%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E7%9A%84%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6">Linux删除指定文件夹及其子文件夹下的指定文件</a></li>
-<li>[安装.sh文件](# 安装.sh文件)</li>
+<li><a href="#%E5%AE%89%E8%A3%85sh-deb%E6%96%87%E4%BB%B6">安装.sh, .deb文件</a></li>
 </ol>
 </blockquote>
 <hr>
@@ -160,9 +160,12 @@ watch (1)            - execute a program periodically, showing output fullscreen
 <pre><code class="language-shell">$ find . -name '*.png' -exec rm -rf {} \;
 </code></pre>
 <hr>
-<h2 id="安装sh文件">安装.sh文件</h2>
+<h2 id="安装sh-deb文件">安装.sh, .deb文件</h2>
 <p><strong>chmod</strong> ：调整权限</p>
-<p><strong>sh</strong> my.sh 进行安装</p>
+<p><strong>sh</strong> my.sh 进行安装<br>
+.deb文件时用<strong>dpkg</strong>统一管理的，基本的安装为</p>
+<pre><code class="language-shell">dpkg -i xxx.deb
+</code></pre>
 
             </div>
             
