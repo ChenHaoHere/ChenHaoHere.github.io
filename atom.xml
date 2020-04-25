@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-16T07:35:51.613Z</updated>
+    <updated>2020-04-25T13:50:46.230Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,18 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[RuntimeError: reduce failed to synchronize: cudaErrorAssert: device-side assert triggered]]></title>
+        <id>https://ChenHaoHere.github.io/post/runtimeerror-reduce-failed-to-synchronize-cudaerrorassert-device-side-assert-triggered/</id>
+        <link href="https://ChenHaoHere.github.io/post/runtimeerror-reduce-failed-to-synchronize-cudaerrorassert-device-side-assert-triggered/">
+        </link>
+        <updated>2020-04-25T13:49:33.000Z</updated>
+        <content type="html"><![CDATA[<p>pytorch报错</p>
+<pre><code class="language-shell">RuntimeError: reduce failed to synchronize: cudaErrorAssert: device-side assert triggered
+</code></pre>
+<p>原因是bceloss的输入必须在[0.0,1.0]之间</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[VScode路径中有非法字符]]></title>
         <id>https://ChenHaoHere.github.io/post/vscode-lu-jing-zhong-you-fei-fa-zi-fu/</id>
@@ -167,20 +179,6 @@ print(ss)
 print(list(range(3, 0, -1))) #得到[2,, 1]
 </code></pre>
 <p>纪念一下自己的愚蠢</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[tqdm与enumerate搭配没有进度条]]></title>
-        <id>https://ChenHaoHere.github.io/post/tqdm-yu-enumerate-da-pei-mei-you-jin-du-tiao/</id>
-        <link href="https://ChenHaoHere.github.io/post/tqdm-yu-enumerate-da-pei-mei-you-jin-du-tiao/">
-        </link>
-        <updated>2020-04-03T09:11:01.000Z</updated>
-        <content type="html"><![CDATA[<p>用pytorch训练模型时，torch.data.DataLoader生成载入数据集的类，在用enumerate能正常使用，但是套上tqdm就只有当前是第几个的输出，没有一个漂亮的进度条出来</p>
-<p><strong>解决方法</strong></p>
-<pre><code class="language-python">for batch_idx, batch in tqdm(enumerate(myDataLoader), total=len(myDataLoader)):
-    pass
-</code></pre>
-<p>因为在自定义数据集的时候，已经定义了--len--方法，所以这样就可以了</p>
 ]]></content>
     </entry>
 </feed>
