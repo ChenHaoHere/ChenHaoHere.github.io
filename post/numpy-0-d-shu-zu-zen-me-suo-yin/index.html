@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>shutdown jupyter notebook from remote via ssh | Blabla</title>
+<title>numpy 0-d数组怎么索引 | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,8 +24,13 @@
 
 
 
-    <meta name="description" content="If you launch the notebook from a command prompt, you can shut it down by pressing Ctrl-C in that same command prompt. I..." />
-    <meta name="keywords" content="jottings" />
+    <meta name="description" content="
+numpy 保存多个数组到一个文件，如果想要辨识各个数组，自然而然想到保存成字典dict，但是读取时
+发现竟然变成了0-d数组，没法索引，还是万能的谷歌解决了我的问题
+
+先保存
+np.save(r&quot;my_dict.npz&quo..." />
+    <meta name="keywords" content="Python" />
   </head>
   <body>
     <div id="app" class="main">
@@ -96,18 +101,37 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">shutdown jupyter notebook from remote via ssh</h2>
-            <div class="post-date">2020-03-12</div>
+            <h2 class="post-title">numpy 0-d数组怎么索引</h2>
+            <div class="post-date">2020-04-30</div>
             
             <div class="post-content" v-pre>
-              <p>If you launch the notebook from a command prompt, you can shut it down by pressing Ctrl-C in that same command prompt. If not, you can run <code>jupyter notebook stop 8888</code>.</p>
+              <blockquote>
+<p>numpy 保存多个数组到一个文件，如果想要辨识各个数组，自然而然想到保存成字典dict，但是读取时<br>
+发现竟然变成了0-d数组，没法索引，还是万能的谷歌解决了我的问题</p>
+</blockquote>
+<p>先保存</p>
+<pre><code class="language-python">np.save(r&quot;my_dict.npz&quot;, {'a':np.arange(2), 'b':np.arange(10)})
+</code></pre>
+<p>再读取</p>
+<pre><code class="language-python">my_dict = np.load(&quot;my_dict.npz&quot;)
+print(my_dict)
+print(my_dict.dtype)#object
+print(my_dict.shape)#()
+</code></pre>
+<p>索引</p>
+<pre><code class="language-python">#method 1
+x.item()
+
+#method 2
+x[()]
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/jottings/" class="tag">
-                    jottings
+                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
+                    Python
                   </a>
                 
               </div>
@@ -115,9 +139,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/anaconda-xu-ni-huan-jing/">
+                <a href="https://ChenHaoHere.github.io/post/runtimeerror-reduce-failed-to-synchronize-cudaerrorassert-device-side-assert-triggered/">
                   <h3 class="post-title">
-                    Anaconda虚拟环境
+                    RuntimeError: reduce failed to synchronize: cudaErrorAssert: device-side assert triggered
                   </h3>
                 </a>
               </div>

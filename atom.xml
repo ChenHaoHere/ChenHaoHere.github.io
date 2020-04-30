@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-25T13:50:46.230Z</updated>
+    <updated>2020-04-30T14:24:21.954Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[numpy 0-d数组怎么索引]]></title>
+        <id>https://ChenHaoHere.github.io/post/numpy-0-d-shu-zu-zen-me-suo-yin/</id>
+        <link href="https://ChenHaoHere.github.io/post/numpy-0-d-shu-zu-zen-me-suo-yin/">
+        </link>
+        <updated>2020-04-30T14:17:45.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>numpy 保存多个数组到一个文件，如果想要辨识各个数组，自然而然想到保存成字典dict，但是读取时<br>
+发现竟然变成了0-d数组，没法索引，还是万能的谷歌解决了我的问题</p>
+</blockquote>
+<p>先保存</p>
+<pre><code class="language-python">np.save(r&quot;my_dict.npz&quot;, {'a':np.arange(2), 'b':np.arange(10)})
+</code></pre>
+<p>再读取</p>
+<pre><code class="language-python">my_dict = np.load(&quot;my_dict.npz&quot;)
+print(my_dict)
+print(my_dict.dtype)#object
+print(my_dict.shape)#()
+</code></pre>
+<p>索引</p>
+<pre><code class="language-python">#method 1
+x.item()
+
+#method 2
+x[()]
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[RuntimeError: reduce failed to synchronize: cudaErrorAssert: device-side assert triggered]]></title>
         <id>https://ChenHaoHere.github.io/post/runtimeerror-reduce-failed-to-synchronize-cudaerrorassert-device-side-assert-triggered/</id>
@@ -167,18 +195,6 @@ s = [1, 2, 3, 4]
 ss = all(s)
 print(ss)
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[range逆序]]></title>
-        <id>https://ChenHaoHere.github.io/post/range-ni-xu/</id>
-        <link href="https://ChenHaoHere.github.io/post/range-ni-xu/">
-        </link>
-        <updated>2020-04-05T02:12:42.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-python">#本意是想得到2，1，0
-print(list(range(3, 0, -1))) #得到[2,, 1]
-</code></pre>
-<p>纪念一下自己的愚蠢</p>
 ]]></content>
     </entry>
 </feed>
