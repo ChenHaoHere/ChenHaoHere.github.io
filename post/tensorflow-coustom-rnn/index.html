@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>numpy常用 | Blabla</title>
+<title>tensorflow coustom RNN | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,18 +24,10 @@
 
 
 
-    <meta name="description" content="numpy常用
-
-
-np.random各种method
-np.all()/any()
-
-
-
-np.random各种method
-https://www.cnblogs.com/zuoshoushizi/p/8727773.html
-np.r..." />
-    <meta name="keywords" content="Python" />
+    <meta name="description" content="
+model.fit()是非常强大的工具，但是自己自定义网络的时候就没法用，但其实tf.keras提供了很好的tf.keras.layers.layer和tf.keras.models.Model使用，通过继承子类的方式也能用上fit
+但是..." />
+    <meta name="keywords" content="tensorflow" />
   </head>
   <body>
     <div id="app" class="main">
@@ -106,34 +98,71 @@ np.r..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">numpy常用</h2>
-            <div class="post-date">2020-02-28</div>
+            <h2 class="post-title">tensorflow coustom RNN</h2>
+            <div class="post-date">2020-05-13</div>
             
             <div class="post-content" v-pre>
-              <h1 id="numpy常用">numpy常用</h1>
-<blockquote>
-<ol>
-<li>np.random各种method</li>
-<li>np.all()/any()</li>
-</ol>
+              <blockquote>
+<p>model.fit()是非常强大的工具，但是自己自定义网络的时候就没法用，但其实tf.keras提供了很好的<strong>tf.keras.layers.layer</strong>和<strong>tf.keras.models.Model</strong>使用，通过继承子类的方式也能用上fit</p>
+<p><strong>但是</strong>，RNN不能这么用，因为RNN还有hiddenstate要搞，直接这么用，会报各种错，反正我吃了血亏了...</p>
+<p>tf.keras提供了RNNCell（我用的keras.layers.AbstractRNNCell，还有GRUcell，LSTMcell，都可以用）来继承编写</p>
 </blockquote>
-<hr>
-<p>np.random各种method</p>
-<p><a href="https://www.cnblogs.com/zuoshoushizi/p/8727773.html">https://www.cnblogs.com/zuoshoushizi/p/8727773.html</a></p>
-<pre><code class="language-python">np.random.normal(mean, var, size)#正态分布
-np.random.randint(low, [high, size])
+<h2 id="代码奉上">代码奉上</h2>
+<pre><code class="language-python">class myGRU(keras.layers.AbstractRNNCell):
+    def __init__(self, units, **kwargs):
+        self.units = units
+        super(myGRU, self).__init__(**kwargs)
+
+    @property
+    def state_size(self):
+        return self.units
+
+    def build(self, input_shape):
+        self.dim = input_shape[-1]
+
+        self.w_r = self.add_weight(shape=[self.dim+self.units, self.units], initializer='uniform', name='reset_gate', trainable=True)
+        self.b_r = self.add_weight(shape=[self.units], initializer='zeros', name='reset gate bias', trainable=True)
+
+        self.w_z = self.add_weight(shape=[self.dim+self.units, self.units], initializer='uniform', name='update_gate', trainable=True)
+        self.b_z = self.add_weight(shape=[self.units], initializer='zeros', name='update gate bias', trainable=True) 
+
+        self.w_n = self.add_weight(shape=[self.dim+self.units, self.units], initializer='uniform', name='intetim', trainable=True)
+        self.b_n = self.add_weight(shape=[self.units], initializer='zeros', name='intetim gate bias', trainable=True)
+
+        self.built = True
+
+    def call(self, inputs, states):
+        prev_output = states[0]
+
+        r = tf.nn.sigmoid(inputs @ self.w_r[:self.dim] + prev_output @ self.w_r[self.dim:] + self.b_r)
+        z = tf.nn.sigmoid(inputs @ self.w_z[:self.dim] + prev_output @ self.w_z[self.dim:] + self.b_z)
+        n = tf.nn.tanh(inputs @ self.w_r[:self.dim] + prev_output @ (r * self.w_r[self.dim:]) + self.b_n)
+        
+        output = (1 - z) * prev_output + z * n
+
+        return output, output
+
+class GRUReg(keras.models.Model):
+    def __init__(self, units, **kwargs):
+        super(GRUReg, self).__init__(**kwargs)
+        self.gru = keras.layers.RNN(myGRU(units))
+        self.dense = keras.layers.Dense(1)
+    
+    def call(self, inputs):
+        x = self.gru(inputs)
+        x = self.dense(x)
+        return x
+model = GRUReg(32)
+model.compile(optimizer=keras.optimizers.RMSprop(), loss='mae', metrics=['mae'])
+model.fit(tf.ones((3, 128, 2)), tf.zeros(3), epochs=5, batch_size=1)
 </code></pre>
-<hr>
-<p>np.any()  判断一个数组是不是至少有一个非零/True, 有就返回True, 没有就False</p>
-<p>np.all()  判断一个数组是不是全为非零/True, 是就返回True, 不是就False</p>
-<hr>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://ChenHaoHere.github.io/tag/python/" class="tag">
-                    Python
+                  <a href="https://ChenHaoHere.github.io/tag/_BOUgb_y_/" class="tag">
+                    tensorflow
                   </a>
                 
               </div>
@@ -141,9 +170,9 @@ np.random.randint(low, [high, size])
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://ChenHaoHere.github.io/post/pandas-chang-yong/">
+                <a href="https://ChenHaoHere.github.io/post/numpy-0-d-shu-zu-zen-me-suo-yin/">
                   <h3 class="post-title">
-                    pandas常用
+                    numpy 0-d数组怎么索引
                   </h3>
                 </a>
               </div>

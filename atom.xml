@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-04-30T14:24:21.954Z</updated>
+    <updated>2020-05-13T06:04:39.977Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,68 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[tensorflow coustom RNN]]></title>
+        <id>https://ChenHaoHere.github.io/post/tensorflow-coustom-rnn/</id>
+        <link href="https://ChenHaoHere.github.io/post/tensorflow-coustom-rnn/">
+        </link>
+        <updated>2020-05-13T05:57:19.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>model.fit()是非常强大的工具，但是自己自定义网络的时候就没法用，但其实tf.keras提供了很好的<strong>tf.keras.layers.layer</strong>和<strong>tf.keras.models.Model</strong>使用，通过继承子类的方式也能用上fit</p>
+<p><strong>但是</strong>，RNN不能这么用，因为RNN还有hiddenstate要搞，直接这么用，会报各种错，反正我吃了血亏了...</p>
+<p>tf.keras提供了RNNCell（我用的keras.layers.AbstractRNNCell，还有GRUcell，LSTMcell，都可以用）来继承编写</p>
+</blockquote>
+<h2 id="代码奉上">代码奉上</h2>
+<pre><code class="language-python">class myGRU(keras.layers.AbstractRNNCell):
+    def __init__(self, units, **kwargs):
+        self.units = units
+        super(myGRU, self).__init__(**kwargs)
+
+    @property
+    def state_size(self):
+        return self.units
+
+    def build(self, input_shape):
+        self.dim = input_shape[-1]
+
+        self.w_r = self.add_weight(shape=[self.dim+self.units, self.units], initializer='uniform', name='reset_gate', trainable=True)
+        self.b_r = self.add_weight(shape=[self.units], initializer='zeros', name='reset gate bias', trainable=True)
+
+        self.w_z = self.add_weight(shape=[self.dim+self.units, self.units], initializer='uniform', name='update_gate', trainable=True)
+        self.b_z = self.add_weight(shape=[self.units], initializer='zeros', name='update gate bias', trainable=True) 
+
+        self.w_n = self.add_weight(shape=[self.dim+self.units, self.units], initializer='uniform', name='intetim', trainable=True)
+        self.b_n = self.add_weight(shape=[self.units], initializer='zeros', name='intetim gate bias', trainable=True)
+
+        self.built = True
+
+    def call(self, inputs, states):
+        prev_output = states[0]
+
+        r = tf.nn.sigmoid(inputs @ self.w_r[:self.dim] + prev_output @ self.w_r[self.dim:] + self.b_r)
+        z = tf.nn.sigmoid(inputs @ self.w_z[:self.dim] + prev_output @ self.w_z[self.dim:] + self.b_z)
+        n = tf.nn.tanh(inputs @ self.w_r[:self.dim] + prev_output @ (r * self.w_r[self.dim:]) + self.b_n)
+        
+        output = (1 - z) * prev_output + z * n
+
+        return output, output
+
+class GRUReg(keras.models.Model):
+    def __init__(self, units, **kwargs):
+        super(GRUReg, self).__init__(**kwargs)
+        self.gru = keras.layers.RNN(myGRU(units))
+        self.dense = keras.layers.Dense(1)
+    
+    def call(self, inputs):
+        x = self.gru(inputs)
+        x = self.dense(x)
+        return x
+model = GRUReg(32)
+model.compile(optimizer=keras.optimizers.RMSprop(), loss='mae', metrics=['mae'])
+model.fit(tf.ones((3, 128, 2)), tf.zeros(3), epochs=5, batch_size=1)
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[numpy 0-d数组怎么索引]]></title>
         <id>https://ChenHaoHere.github.io/post/numpy-0-d-shu-zu-zen-me-suo-yin/</id>
@@ -166,34 +228,6 @@ newModel.set_weights(model.get_weights()) #可一定注意把weights换咯
 <p>google出来也有不少人有这问题，<a href="https://github.com/tensorflow/tensorflow/issues/36266">tf的issue里</a>底下评论的说work的方法我都试了，但都<strong>不行</strong>（气死我了）<br>
 最后还是屈服了，曲线救国，不用dataframe了</p>
 <pre><code class="language-python">d_loader = tf.data.Dataset.from_tensor_slices((df.loc[:, [&quot;电流(A)&quot;, '电压(V)']].values, df.loc[:, '容量(Ah)'].values))
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[获得list的所有排序]]></title>
-        <id>https://ChenHaoHere.github.io/post/huo-de-list-de-suo-you-pai-xu/</id>
-        <link href="https://ChenHaoHere.github.io/post/huo-de-list-de-suo-you-pai-xu/">
-        </link>
-        <updated>2020-04-05T02:15:32.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>心血来潮想到这个东西，感觉不是很难，就着手实现了一下<br>
-但发现不是那么简单（不是计算机系真的心累</p>
-</blockquote>
-<pre><code class="language-python">def all(s,ss=None):
-    ss = [s]
-    if len(s) == 2:
-        ss.append(s[::-1])
-        return ss
-    else:
-        for i in range((len(s)-1), -1, -1):
-            item = s[i]
-            temp = list(map(lambda x:x+[item], all(s[:i] + s[i+1:])))
-            ss.extend(temp)
-        return ss[1:]
-
-s = [1, 2, 3, 4]
-ss = all(s)
-print(ss)
 </code></pre>
 ]]></content>
     </entry>
