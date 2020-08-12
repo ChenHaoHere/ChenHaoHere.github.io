@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-05-13T08:45:59.824Z</updated>
+    <updated>2020-08-12T03:30:32.855Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[python获得所有包]]></title>
+        <id>https://ChenHaoHere.github.io/post/python-huo-de-suo-you-bao/</id>
+        <link href="https://ChenHaoHere.github.io/post/python-huo-de-suo-you-bao/">
+        </link>
+        <updated>2020-08-12T03:30:00.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-python">help('modules')
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[tensorflow画networks的图]]></title>
         <id>https://ChenHaoHere.github.io/post/tensorflow-hua-networks-de-tu/</id>
@@ -21,7 +31,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[tensorflow coustom RNN]]></title>
+        <title type="html"><![CDATA[tensorflow custom RNN]]></title>
         <id>https://ChenHaoHere.github.io/post/tensorflow-coustom-rnn/</id>
         <link href="https://ChenHaoHere.github.io/post/tensorflow-coustom-rnn/">
         </link>
@@ -187,41 +197,6 @@ newOutputs = model(newInput)
 newModel = Model(newInput,newOutputs)
 newModel.set_weights(model.get_weights()) #可一定注意把weights换咯
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[dataframe无法赋值的一个大大大大大大坑]]></title>
-        <id>https://ChenHaoHere.github.io/post/dataframe-wu-fa-fu-zhi-de-yi-ge-da-da-da-da-da-da-keng/</id>
-        <link href="https://ChenHaoHere.github.io/post/dataframe-wu-fa-fu-zhi-de-yi-ge-da-da-da-da-da-da-keng/">
-        </link>
-        <updated>2020-04-06T10:03:18.000Z</updated>
-        <content type="html"><![CDATA[<p>今天给df筛选出来的数据赋值的时候遇到赋值后没改变的情况，搞了好久终于搞明白了</p>
-<h2 id="背景"><strong>背景：</strong></h2>
-<blockquote>
-<p>我的dataframe有一列是“记录序号”，是一列连续的整数</p>
-</blockquote>
-<blockquote>
-<p>然后我按条件找到了我要改值的行的一系列整数，分别以start和last为上下界</p>
-</blockquote>
-<blockquote>
-<p>我就把“记录序号”处于start和last之间的df取出来，再在取出来的里得到列名为&quot;容量&quot;的所有值</p>
-</blockquote>
-<blockquote>
-<p>这些值我用同样长度的一维array赋值</p>
-</blockquote>
-<blockquote>
-<p>可是赋值完，再打印出这些“记录序号”处于start和last之间的行，里面的值还是0</p>
-</blockquote>
-<h2 id="有问题的代码如下">有问题的代码如下：</h2>
-<p><img src="https://raw.githubusercontent.com/ChenHaoHere/PicGo/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200406180722.png" alt="" loading="lazy"><br>
-可以看到值被赋完后没有变</p>
-<p>其实是因为<strong>df[:]返回的是个copy</strong>，所以当然没法改变原来的值<br>
-验证如下：<br>
-<img src="https://raw.githubusercontent.com/ChenHaoHere/PicGo/master/20200406181019.png" alt="" loading="lazy"><br>
-两个id不一样</p>
-<p>在stackoverflow发现一个可用的赋值方法</p>
-<h2 id="修改后的代码如下">修改后的代码如下：</h2>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/ChenHaoHere/PicGo/master/20200406181156.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
