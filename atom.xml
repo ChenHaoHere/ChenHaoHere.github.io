@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-08-12T03:40:53.966Z</updated>
+    <updated>2020-10-13T05:47:56.479Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[Modular Robot（2020~）]]></title>
+        <id>https://ChenHaoHere.github.io/post/modular-robot2020~/</id>
+        <link href="https://ChenHaoHere.github.io/post/modular-robot2020~/">
+        </link>
+        <updated>2020-10-13T05:47:26.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0921889019303379">Roombots extended: Challenges in the next generation of self-reconfigurable modular robots and their application in adaptive and assistive furniture</a></li>
+</ol>
+<p>家具的辅助场景</p>
+<p>一开始有关于MR的survey性质的介绍，然后是他自己的家具应用的特定场景 完成的工作是人为遥控的</p>
+<ol start="2">
+<li><a href="https://www.emerald.com/insight/content/doi/10.1108/WJE-02-2019-0032/full/html">Quantum genetic algorithm to evolve controllers for self-reconfigurable modular robots</a></li>
+</ol>
+<p>量子遗传算法</p>
+<ol start="3">
+<li><a href="https://ieeexplore.ieee.org/abstract/document/9158382">Kubits: Solid-State Self-Reconfiguration With Programmable Magnets</a></li>
+</ol>
+<p>可编程磁体，能达到1000个模块</p>
+<ol start="4">
+<li><a href="https://link.springer.com/chapter/10.1007/978-3-030-28619-4_65">Configuration Recognition with Distributed Information for Modular Robots</a></li>
+</ol>
+<p>很多个模块自动变形、配置的算法 新的MR表示法和多项式时间复杂度下解决匹配和映射</p>
+<p>This paper presents a new representation of modular robot configurations and a polynomial time algorithm for configuration recognition which can finish matching and mapping problem simultaneously.</p>
+<ol start="5">
+<li><a href="https://www.frontiersin.org/articles/10.3389/frobt.2020.00044/full?&amp;utm_source=Email_to_authors_&amp;utm_medium=Email&amp;utm_content=T1_11.5e1_author&amp;utm_campaign=Email_publication&amp;field=&amp;journalName=Frontiers_in_Robotics_and_AI&amp;id=511523">Scalable and Robust Fabrication, Operation, and Control of Compliant Modular Robots</a></li>
+</ol>
+<p>硬件设计 二维的 用不上 但是其中思想也许可以借鉴</p>
+<p>很轻</p>
+<ol start="6">
+<li><a href="https://arxiv.org/pdf/2006.11071.pdf">Distributed prediction of unsafe reconfiguration scenarios of modular-robotic Programmable Matter</a></li>
+</ol>
+<p>重构时稳不稳</p>
+<ol start="7">
+<li><a href="http://bluebox.ippt.pan.pl/~jleng/doc/iros20subm.pdf">Autonomous model-based assessment of mechanical failures of reconfigurable modular robots with a Conjugate Gradient solver</a></li>
+</ol>
+<p>故障检测算法</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[python获得所有包]]></title>
         <id>https://ChenHaoHere.github.io/post/python-huo-de-suo-you-bao/</id>
@@ -175,28 +214,6 @@ x[()]
 <p>所有的Windows文件都被挂载到 Linux的 /mnt/ 下面的盘符 ，如C盘对应的是 /mnt/c 。</p>
 </blockquote>
 <figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/ChenHaoHere/PicGo/master/20200413093404.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[keras改input_shape]]></title>
-        <id>https://ChenHaoHere.github.io/post/keras-gai-input_shape/</id>
-        <link href="https://ChenHaoHere.github.io/post/keras-gai-input_shape/">
-        </link>
-        <updated>2020-04-07T12:50:04.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>keras的model通常使用的时候是不需要特意把input_shape设置明白的，但今天用tf-lite部署到MCU上的时候，报错</strong></p>
-<p><color:red>None is only supported in the 1st dimension.……………………<\p>
-就是说只有1st dimentio(也就是batch_size)可以为None
-<p>那就改呗<br>
-结果model.input_size = (None, 128, 2)会报错说不给改。。<br>
-然后google了一个解决方案，如下</p>
-<pre><code class="language-python">from tensorflow.keras.layers import Input
-from tensorflow.keras.models import Model
-
-newInput = Input(shape=(128,2))
-newOutputs = model(newInput)
-newModel = Model(newInput,newOutputs)
-newModel.set_weights(model.get_weights()) #可一定注意把weights换咯
-</code></pre>
 ]]></content>
     </entry>
 </feed>
