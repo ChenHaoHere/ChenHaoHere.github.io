@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2020-10-15T23:49:46.471Z</updated>
+    <updated>2020-12-30T06:09:45.808Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[绞在“婚姻”上的无主题杂想]]></title>
+        <id>https://ChenHaoHere.github.io/post/jiao-zai-hun-yin-shang-de-wu-zhu-ti-za-xiang/</id>
+        <link href="https://ChenHaoHere.github.io/post/jiao-zai-hun-yin-shang-de-wu-zhu-ti-za-xiang/">
+        </link>
+        <updated>2020-12-30T06:09:16.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>无性生殖的生物中没有婚姻的概念，它们靠着孢子或者无丝分裂折腾自己个儿，开枝散叶，子孙满堂，于是你中有我我中有你，轻轻松松的就做到了和谐与大一统。不信你看，你什么时候见过哪只个大的蘑菇会抢个小的蘑菇的阳光。
+</code></pre>
+<p>有性生殖的生物中也只有人类有婚姻的概念，显然，智人种群得天独厚的“智慧”赋予了我们同界同门同纲同目同科同属同种的朋友们（嘿，绕了一圈，还是我们），更高的道德标准和更强烈的自由约束。我们的祖先，在森林中晃荡，在草原上匍匐，茹毛饮血、弱肉强食写在了他们的基因里，寻找食物、繁衍生息占据了他们的本能。为了方便精细化管理，量入为出，开源节流，保证种群可持续发展，我们的祖先也高瞻远瞩的进化出了当时领先世界（至少不落后）的集团管理模式——最强壮的那只猴子除了能够获得最丰富的食物，而且也享有优先交配权，所有的母猴子都得由他临幸，而他的孩子也只能是他的孩子。没有一只猴子觉得这有什么问题，隔壁老猴可能对最后一条稍有异议，但远古以来就是少数服从多数，不是吗？<br>
+直到有一天，天上的神仙坐不住了，如此先进的管理模式，如此高效的运作理念，今天你能一猴管理所有母猴，明天你就能管理所有母马、母牛、母老虎，这还得了，你这是要反啊！于是紧急会议召开，各路神仙云集，天空之上，五光十色，祥瑞之气肆意氤氲。瑞气过敏的玉皇大帝忍着咳嗽发表了慷慨激昂的演讲，并主持了整个“关于整治下界凡猴大逆不道是否施展神威予以严惩的第一次投票”。投票过程非常顺利，大部分神仙都被点燃了怒火，誓要让我们的祖先尝尝冒犯它们的后果，只有宙斯拉着他妈妈投了反对票，兴许他觉得这根本不算什么吧。<br>
+于是神罚降临，乌云密布，狂风大作，气压迅速升高，压得人，哦不、猴喘不过来气，只听轰隆一声，一道紫色的闪电划过天空，精准的劈在了一颗无猴栖息的老树上，旋即乌云退去，天空传来一声悠扬的“下班喽”，只留下一群猴子畏惧又好奇的盯着那颗老树上缠绕的发烫的红色光芒。然后，猴就变成了人，变成了我们。<br>
+于是我们丧失了对优先交配权的平凡梦想，转而得到了美丑、贫富、先有鸡还是先有蛋的深刻理论，不过好在，我们也得到了借由某黄黑配色网站实现的自主交配权。有的人可能要问了，既然已经实现了自主交配自由，为什么还要结婚呢，婚姻岂不鸡肋？过来人大多会告诉你，因为墙，啊不是，因为你不懂。而我会回答：确实。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MR第一周组会：Modular Robot（2020~）]]></title>
         <id>https://ChenHaoHere.github.io/post/modular-robot2020~/</id>
@@ -202,18 +216,6 @@ x[()]
         <content type="html"><![CDATA[<p>直接从github git clone一些大项目的时候太太太太太慢了，国内有一个叫码云的代码托管网站，<strong>速度贼快</strong><br>
 但是第一次git clone的时候用户名/密码验证失败了<br>
 才发现这个网站自己设置的用户名是不能用来验证的（不知道为啥要有这个），clone的时候username改成自己注册时的邮箱账号就行了</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Win的ubuntu子系统调用本机磁盘文件]]></title>
-        <id>https://ChenHaoHere.github.io/post/win-de-ubuntu-zi-xi-tong-diao-yong-ben-ji-ci-pan-wen-jian/</id>
-        <link href="https://ChenHaoHere.github.io/post/win-de-ubuntu-zi-xi-tong-diao-yong-ben-ji-ci-pan-wen-jian/">
-        </link>
-        <updated>2020-04-13T01:32:03.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>所有的Windows文件都被挂载到 Linux的 /mnt/ 下面的盘符 ，如C盘对应的是 /mnt/c 。</p>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/ChenHaoHere/PicGo/master/20200413093404.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
