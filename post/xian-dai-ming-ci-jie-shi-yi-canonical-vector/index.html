@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>C/C++ | Blabla</title>
+<title>线代名词解释一：canonical vector | Blabla</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -12,13 +12,23 @@
 <link rel="stylesheet" href="https://ChenHaoHere.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
-    <meta name="description" content="我的Blog">
+    <meta name="description" content="
+因为学线代学的是中文，所以读文献的时候遇到英文词汇，有的可能是其实认识只是认不出来，在此整理一下
+
+" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,88 +98,37 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: C/C++</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://ChenHaoHere.github.io/post/vscode-lu-jing-zhong-you-fei-fa-zi-fu/">
-                  <h2 class="post-title">VScode路径中有非法字符</h2>
-                </a>
-                <div class="post-date">
-                  2020-04-16
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://ChenHaoHere.github.io/post/cun-chu-dan-yuan-huan-suan/">
-                  <h2 class="post-title">存储单元换算</h2>
-                </a>
-                <div class="post-date">
-                  2020-04-02
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://ChenHaoHere.github.io/post/shi-yong-union-shi-xian-wei-cao-zuo/">
-                  <h2 class="post-title">使用union实现位操作</h2>
-                </a>
-                <div class="post-date">
-                  2020-03-17
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://ChenHaoHere.github.io/post/c-yu-yan-dong-tai-lian-jie-ku-andjing-tai-lian-jie-ku/">
-                  <h2 class="post-title">C语言 动态链接库&amp;静态链接库</h2>
-                </a>
-                <div class="post-date">
-                  2020-03-05
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://ChenHaoHere.github.io/post/define-jian-dan-zong-jie/">
-                  <h2 class="post-title">#define简单总结</h2>
-                </a>
-                <div class="post-date">
-                  2020-03-05
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">线代名词解释一：canonical vector</h2>
+            <div class="post-date">2021-03-20</div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>因为学线代学的是中文，所以读文献的时候遇到英文词汇，有的可能是其实认识只是认不出来，在此整理一下</p>
+</blockquote>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ChenHaoHere.github.io/post/jiao-zai-hun-yin-shang-de-wu-zhu-ti-za-xiang/">
+                  <h3 class="post-title">
+                    绞在“婚姻”上的无主题杂想
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -195,6 +154,29 @@ var app = new Vue({
     hljs.initHighlightingOnLoad()
   </script>
 
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'b1c1c486e06b254876e8',
+        clientSecret: 'ec23f953b6a1b1a77836cbf6c982729cb8737578',
+        repo: 'ChenHaoHere.github.io',
+        owner: 'ChenHaoHere',
+        admin: ['ChenHaoHere'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

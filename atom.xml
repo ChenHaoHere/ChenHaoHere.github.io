@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2021-03-20T00:22:52.350Z</updated>
+    <updated>2021-03-20T00:25:51.052Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[线代名词解释一：canonical vector]]></title>
+        <id>https://ChenHaoHere.github.io/post/xian-dai-ming-ci-jie-shi-yi-canonical-vector/</id>
+        <link href="https://ChenHaoHere.github.io/post/xian-dai-ming-ci-jie-shi-yi-canonical-vector/">
+        </link>
+        <updated>2021-03-20T00:22:56.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>因为学线代学的是中文，所以读文献的时候遇到英文词汇，有的可能是其实认识只是认不出来，在此整理一下</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[绞在“婚姻”上的无主题杂想]]></title>
         <id>https://ChenHaoHere.github.io/post/jiao-zai-hun-yin-shang-de-wu-zhu-ti-za-xiang/</id>
@@ -205,17 +216,6 @@ x[()]
         </link>
         <updated>2020-04-15T05:48:51.000Z</updated>
         <content type="html"><![CDATA[<p>（https://github.com/bazelbuild/bazel/issues/838）</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[码云 clone 时认证失败]]></title>
-        <id>https://ChenHaoHere.github.io/post/ma-yun-clone-shi-ren-zheng-shi-bai/</id>
-        <link href="https://ChenHaoHere.github.io/post/ma-yun-clone-shi-ren-zheng-shi-bai/">
-        </link>
-        <updated>2020-04-15T02:10:48.000Z</updated>
-        <content type="html"><![CDATA[<p>直接从github git clone一些大项目的时候太太太太太慢了，国内有一个叫码云的代码托管网站，<strong>速度贼快</strong><br>
-但是第一次git clone的时候用户名/密码验证失败了<br>
-才发现这个网站自己设置的用户名是不能用来验证的（不知道为啥要有这个），clone的时候username改成自己注册时的邮箱账号就行了</p>
 ]]></content>
     </entry>
 </feed>
