@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2021-03-29T23:59:47.854Z</updated>
+    <updated>2021-03-30T00:00:58.152Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blabla</rights>
     <entry>
-        <title type="html"><![CDATA[线代名词解释一：det adj]]></title>
+        <title type="html"><![CDATA[线代名词解释二：det adj]]></title>
         <id>https://ChenHaoHere.github.io/post/xian-dai-ming-ci-jie-shi-yi-det-adj/</id>
         <link href="https://ChenHaoHere.github.io/post/xian-dai-ming-ci-jie-shi-yi-det-adj/">
         </link>
