@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2021-04-14T13:55:52.651Z</updated>
+    <updated>2021-04-14T13:58:01.340Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -20,6 +20,7 @@
 <pre><code class="language-python">pool.map(lambda x:x.save(), self.nodes)
 </code></pre>
 <h1 id="看上去好像没什么问题但是这一句执行完之后我发现总有一些nodes没有运行没有save每次漏的还不一样所以程序总是不可复现">看上去好像没什么问题，但是这一句执行完之后，我发现总有一些nodes没有运行！！！没有save！！！每次漏的还不一样，所以程序总是不可复现！</h1>
+<h1 id="最关键的是之前跑的数据全部不能用了">最关键的是，之前跑的数据全部不能用了</h1>
 <h1 id="我吐了啊啊啊啊啊啊啊啊啊啊">我吐了啊啊啊啊啊啊啊啊啊啊</h1>
 ]]></content>
     </entry>
