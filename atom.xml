@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2021-03-30T00:00:58.152Z</updated>
+    <updated>2021-04-14T13:55:52.651Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[python的多线程能不用则不用]]></title>
+        <id>https://ChenHaoHere.github.io/post/python-de-duo-xian-cheng-neng-bu-yong-ze-bu-yong/</id>
+        <link href="https://ChenHaoHere.github.io/post/python-de-duo-xian-cheng-neng-bu-yong-ze-bu-yong/">
+        </link>
+        <updated>2021-04-14T13:49:44.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="我在跑程序的时候所有随机种子都设置的好好的结果每次跑的结果都不一样我调了无数天都不知道问题出在哪结果是python多线程threading的问题-线程池有一个贼恶心的bug就是他不完全遍历你敢相信">我在跑程序的时候，所有随机种子都设置的好好的，结果每次跑的结果都不一样，我调了无数天都不知道问题出在哪，结果是python多线程（threading）的问题。线程池有一个贼恶心的bug就是，他不完全遍历！！你敢相信！！！</h1>
+<pre><code class="language-python">pool.map(lambda x:x.save(), self.nodes)
+</code></pre>
+<h1 id="看上去好像没什么问题但是这一句执行完之后我发现总有一些nodes没有运行没有save每次漏的还不一样所以程序总是不可复现">看上去好像没什么问题，但是这一句执行完之后，我发现总有一些nodes没有运行！！！没有save！！！每次漏的还不一样，所以程序总是不可复现！</h1>
+<h1 id="我吐了啊啊啊啊啊啊啊啊啊啊">我吐了啊啊啊啊啊啊啊啊啊啊</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[线代名词解释二：det adj]]></title>
         <id>https://ChenHaoHere.github.io/post/xian-dai-ming-ci-jie-shi-yi-det-adj/</id>
@@ -213,15 +226,6 @@ x[()]
 <pre><code class="language-shell">        &quot;MIMode&quot;: &quot;gdb&quot;,
         &quot;miDebuggerPath&quot;: &quot;D:/MinGW64/mingw64/bin/gdb.exe&quot;
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[BAZEL .sh安装卸载]]></title>
-        <id>https://ChenHaoHere.github.io/post/bazel-sh-an-zhuang-xie-zai/</id>
-        <link href="https://ChenHaoHere.github.io/post/bazel-sh-an-zhuang-xie-zai/">
-        </link>
-        <updated>2020-04-15T05:48:51.000Z</updated>
-        <content type="html"><![CDATA[<p>（https://github.com/bazelbuild/bazel/issues/838）</p>
 ]]></content>
     </entry>
 </feed>
