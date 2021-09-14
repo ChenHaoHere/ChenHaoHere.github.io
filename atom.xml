@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2021-04-29T06:43:25.988Z</updated>
+    <updated>2021-09-14T02:39:04.210Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,18 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[尊重差异、平等权利、自由选择]]></title>
+        <id>https://ChenHaoHere.github.io/post/zun-chong-chai-yi-ping-deng-quan-li-zi-you-xuan-ze/</id>
+        <link href="https://ChenHaoHere.github.io/post/zun-chong-chai-yi-ping-deng-quan-li-zi-you-xuan-ze/">
+        </link>
+        <updated>2021-07-11T00:37:18.000Z</updated>
+        <content type="html"><![CDATA[<p>尊重差异、平等权利、自由选择</p>
+<p>肌肉、性心理疾病、航空动物</p>
+<p>职场歧视</p>
+<p>俄罗斯男性职业</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[傻言傻语]]></title>
         <id>https://ChenHaoHere.github.io/post/sha-yan-sha-yu/</id>
@@ -212,18 +224,6 @@ x.item()
 #method 2
 x[()]
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[RuntimeError: reduce failed to synchronize: cudaErrorAssert: device-side assert triggered]]></title>
-        <id>https://ChenHaoHere.github.io/post/runtimeerror-reduce-failed-to-synchronize-cudaerrorassert-device-side-assert-triggered/</id>
-        <link href="https://ChenHaoHere.github.io/post/runtimeerror-reduce-failed-to-synchronize-cudaerrorassert-device-side-assert-triggered/">
-        </link>
-        <updated>2020-04-25T13:49:33.000Z</updated>
-        <content type="html"><![CDATA[<p>pytorch报错</p>
-<pre><code class="language-shell">RuntimeError: reduce failed to synchronize: cudaErrorAssert: device-side assert triggered
-</code></pre>
-<p>原因是bceloss的输入必须在[0.0,1.0]之间</p>
 ]]></content>
     </entry>
 </feed>
