@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ChenHaoHere.github.io</id>
     <title>Blabla</title>
-    <updated>2021-09-14T02:40:28.909Z</updated>
+    <updated>2021-09-16T06:31:55.158Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ChenHaoHere.github.io"/>
     <link rel="self" href="https://ChenHaoHere.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://ChenHaoHere.github.io/images/avatar.png</logo>
     <icon>https://ChenHaoHere.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Blabla</rights>
+    <entry>
+        <title type="html"><![CDATA[线性代数中英文对照表（update anytime）]]></title>
+        <id>https://ChenHaoHere.github.io/post/xian-xing-dai-shu-zhong-ying-wen-dui-zhao-biao-update-anytime/</id>
+        <link href="https://ChenHaoHere.github.io/post/xian-xing-dai-shu-zhong-ying-wen-dui-zhao-biao-update-anytime/">
+        </link>
+        <updated>2021-09-16T06:29:51.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>normal vector 法向量</li>
+<li>obtuse angle 钝角</li>
+<li>right angle 直角</li>
+<li>acute angle 锐角</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[尊重差异、平等权利、自由选择]]></title>
         <id>https://ChenHaoHere.github.io/post/zun-chong-chai-yi-ping-deng-quan-li-zi-you-xuan-ze/</id>
@@ -195,34 +209,6 @@ class GRUReg(keras.models.Model):
 model = GRUReg(32)
 model.compile(optimizer=keras.optimizers.RMSprop(), loss='mae', metrics=['mae'])
 model.fit(tf.ones((3, 128, 2)), tf.zeros(3), epochs=5, batch_size=1)
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[numpy 0-d数组怎么索引]]></title>
-        <id>https://ChenHaoHere.github.io/post/numpy-0-d-shu-zu-zen-me-suo-yin/</id>
-        <link href="https://ChenHaoHere.github.io/post/numpy-0-d-shu-zu-zen-me-suo-yin/">
-        </link>
-        <updated>2020-04-30T14:17:45.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>numpy 保存多个数组到一个文件，如果想要辨识各个数组，自然而然想到保存成字典dict，但是读取时<br>
-发现竟然变成了0-d数组，没法索引，还是万能的谷歌解决了我的问题</p>
-</blockquote>
-<p>先保存</p>
-<pre><code class="language-python">np.save(r&quot;my_dict.npz&quot;, {'a':np.arange(2), 'b':np.arange(10)})
-</code></pre>
-<p>再读取</p>
-<pre><code class="language-python">my_dict = np.load(&quot;my_dict.npz&quot;)
-print(my_dict)
-print(my_dict.dtype)#object
-print(my_dict.shape)#()
-</code></pre>
-<p>索引</p>
-<pre><code class="language-python">#method 1
-x.item()
-
-#method 2
-x[()]
 </code></pre>
 ]]></content>
     </entry>
